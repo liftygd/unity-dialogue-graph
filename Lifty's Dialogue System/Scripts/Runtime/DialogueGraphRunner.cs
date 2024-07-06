@@ -15,7 +15,8 @@ namespace Lifty.DialogueSystem
 
         public void StartDialogue()
         {
-            _dialogueGraph.GetStartNode().Process();
+            var startNode = _dialogueGraph.GetStartNode();
+            startNode.Process(this);
         }
     }
 }

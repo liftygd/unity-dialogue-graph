@@ -38,7 +38,6 @@ namespace Lifty.DialogueSystem.Editor
             if (_currentGraph == null) return;
             
             ThisWindow = this;
-            _currentGraph.Nodes.ForEach(x => x.Configure());
             DrawGraph();
         }
 

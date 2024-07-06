@@ -20,15 +20,10 @@ namespace Lifty.DialogueSystem
             StringField = "Text";
         }
 
-        public override void Process()
+        public override void Process(DialogueGraphRunner runner)
         {
+            base.Process(runner);
             _data = StringField;
-        }
-
-        public override string GetData()
-        {
-            Process();
-            return base.GetData();
         }
     }
 }

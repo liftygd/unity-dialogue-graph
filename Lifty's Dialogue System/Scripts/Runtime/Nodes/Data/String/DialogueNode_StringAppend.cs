@@ -29,25 +29,21 @@ namespace Lifty.DialogueSystem
             StringTwoField = "Text 2";
         }
         
-        public override void Process()
+        public override void Process(DialogueGraphRunner runner)
         {
+            base.Process(runner);
+
             if (StringOneIn != null && StringOneIn.ID != "")
-                _addStringOne = ((DialogueGraphDataNode<string>) StringOneIn).GetData();
+                _addStringOne = GetDataFromNode<string>(StringOneIn, runner);
             else
                 _addStringOne = StringOneField;
             
             if (StringTwoIn != null && StringTwoIn.ID != "")
-                _addStringTwo = ((DialogueGraphDataNode<string>) StringTwoIn).GetData();
+                _addStringTwo = GetDataFromNode<string>(StringTwoIn, runner);
             else
                 _addStringTwo = StringTwoField;
             
             _data = _addStringOne + _addStringTwo;
-        }
-
-        public override string GetData()
-        {
-            Process();
-            return base.GetData();
         }
     }
 }

@@ -14,6 +14,8 @@ namespace Lifty.DialogueSystem
         public string ID => _guid;
         public Rect Position => _position;
 
+        protected DialogueGraphRunner _runner;
+
         public DialogueGraphNode(bool empty = false)
         {
             if (empty) return;
@@ -26,19 +28,22 @@ namespace Lifty.DialogueSystem
             _guid = Guid.NewGuid().ToString();
         }
 
-        public virtual void Configure()
-        {
-            
-        }
-
         public void SetPosition(Rect position)
         {
             _position = position;
         }
 
-        public virtual void Process()
+        public virtual void Process(DialogueGraphRunner runner)
         {
-            
+            _runner = runner;
+        }
+
+        protected T GetDataFromNode<T>(DialogueGraphNode node, DialogueGraphRunner runner)
+        {
+            var dataNode = (DialogueGraphDataNode<T>) node;
+            dataNode.Process(runner);
+
+            return dataNode.GetData();
         }
     }
 }

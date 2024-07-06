@@ -2,28 +2,28 @@ using UnityEngine;
 
 namespace Lifty.DialogueSystem
 {
-    [NodeInfo("Integer", "Data/Integer/Integer", "dialogue-node-data-integer")]
-    public class DialogueNode_IntegerData : DialogueGraphDataNode<int>
+    [NodeInfo("Boolean", "Data/Boolean/Boolean", "dialogue-node-data-boolean")]
+    public class DialogueNode_BooleanData : DialogueGraphDataNode<bool>
     {
         [NodeFlow("", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.EmptyPort))]
         [SerializeReference] public DialogueGraphNode InConnection = new DialogueGraphNode(true);
 
         [NodeFlowField("")] 
-        public int IntegerField;
+        public bool BooleanField;
         
-        [NodeFlow("Out", NodeFlowType.FlowOutput, typeof(DialogueGraphPortTypes.IntegerPort))]
+        [NodeFlow("Out", NodeFlowType.FlowOutput, typeof(DialogueGraphPortTypes.BooleanPort))]
         [SerializeReference] public DialogueGraphNode OutConnection = new DialogueGraphNode(true);
         
-        public DialogueNode_IntegerData() : base()
+        public DialogueNode_BooleanData() : base()
         {
-            IntegerField = 0;
+            BooleanField = false;
         }
 
         public override void Process(DialogueGraphRunner runner)
         {
             base.Process(runner);
             
-            _data = IntegerField;
+            _data = BooleanField;
         }
     }
 }

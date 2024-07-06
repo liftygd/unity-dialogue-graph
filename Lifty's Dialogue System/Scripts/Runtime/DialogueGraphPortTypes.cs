@@ -29,5 +29,7 @@ namespace Lifty.DialogueSystem
         public class StringPort : DialogueGraphPort { protected override string portColorHex => "#55a6e0"; };
         
         public class IntegerPort : DialogueGraphPort { protected override string portColorHex => "#5db374"; };
+        
+        public class BooleanPort : DialogueGraphPort { protected override string portColorHex => "#b35d5d"; };
     }
 }

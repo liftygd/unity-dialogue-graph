@@ -90,7 +90,9 @@ namespace Lifty.DialogueSystem.Editor
                     groupName += "/";
                 }
 
-                SearchTreeEntry entry = new SearchTreeEntry(new GUIContent(entryTitle.Last()));
+                var nodeSearchTitle = "    " + entryTitle.Last();
+
+                SearchTreeEntry entry = new SearchTreeEntry(new GUIContent(nodeSearchTitle));
                 entry.level = entryTitle.Length;
                 entry.userData = new SearchContextElement(element.target, element.title);
                 tree.Add(entry);

@@ -20,20 +20,21 @@ namespace Lifty.DialogueSystem
             IntField = 0;
         }
 
-        public override void Process()
+        public override void Process(DialogueGraphRunner runner)
         {
+            base.Process(runner);
+            
             if (InConnection != null && InConnection.ID != "")
-                _intFieldValue = ((DialogueGraphDataNode<int>) InConnection).GetData();
+            {
+                var node = ((DialogueGraphDataNode<int>) InConnection);
+                node.Process(runner);
+                
+                _intFieldValue = node.GetData();
+            }
             else
                 _intFieldValue = IntField;
             
             _data = _intFieldValue.ToString();
-        }
-
-        public override string GetData()
-        {
-            Process();
-            return base.GetData();
         }
     }
 }

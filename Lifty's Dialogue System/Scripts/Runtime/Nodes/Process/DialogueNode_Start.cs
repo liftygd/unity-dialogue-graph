@@ -8,9 +8,10 @@ namespace Lifty.DialogueSystem
         [NodeFlow("Dialogue Start", NodeFlowType.FlowOutput)]
         [SerializeReference] public DialogueGraphNode OutConnection = new DialogueGraphNode(true);
 
-        public override void Process()
+        public override void Process(DialogueGraphRunner runner)
         {
-            OutConnection.Process();
+            base.Process(runner);
+            OutConnection.Process(runner);
         }
     }
 }

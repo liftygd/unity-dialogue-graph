@@ -27,3 +27,11 @@ DialogueGraphView {
 .dialogue-node-data-integer {
     background-color: #2D5C42;
 }
+
+.dialogue-node-data-boolean {
+    background-color: #5e2929;
+}
+
+.dialogue-node-branch {
+    background-color: #5c2d4f;
+}

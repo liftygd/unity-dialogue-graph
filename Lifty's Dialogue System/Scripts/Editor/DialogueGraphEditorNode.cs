@@ -168,7 +168,7 @@ namespace Lifty.DialogueSystem.Editor
             if (field.FieldType == typeof(string))
             {
                 var valueField = new TextField();
-                
+
                 valueField.value = (string) field.GetValue(_node);
                 valueField.RegisterValueChangedCallback(evt =>
                 {
@@ -178,11 +178,26 @@ namespace Lifty.DialogueSystem.Editor
 
                 return valueField;
             }
-            else if (field.FieldType == typeof(int))
+            
+            if (field.FieldType == typeof(int))
             {
                 var valueField = new IntegerField();
                 
                 valueField.value = (int) field.GetValue(_node);
+                valueField.RegisterValueChangedCallback(evt =>
+                {
+                    field.SetValue(_node, valueField.value);
+                    DialogueGraphEditorWindow.UnsavedChanges();
+                });
+
+                return valueField;
+            }
+            
+            if (field.FieldType == typeof(bool))
+            {
+                var valueField = new Toggle();
+                
+                valueField.value = (bool) field.GetValue(_node);
                 valueField.RegisterValueChangedCallback(evt =>
                 {
                     field.SetValue(_node, valueField.value);
