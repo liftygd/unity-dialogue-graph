@@ -6,6 +6,7 @@ To install, put the "Lifty's Dialogue System" into the Assets/Plugins folder (ne
 
 # Credit
 
-Graph view system made thanks to livestreams from Game Dev Guide with some tweaks to fit my system:
-Channel - https://www.youtube.com/@GameDevGuide
-Livestream part 1 - https://www.youtube.com/watch?v=uXxBXGI-05k&t=1s
+Graph view system made thanks to livestreams from Game Dev Guide with tweaks to fit my system: <br />
+Channel - https://www.youtube.com/@GameDevGuide <br />
+Livestream part 1 - https://www.youtube.com/watch?v=uXxBXGI-05k <br />
+Livestream part 2 - https://www.youtube.com/watch?v=iBukERGzEz0 <br />
