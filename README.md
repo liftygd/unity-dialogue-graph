@@ -1,1 +1,3 @@
-# unity-dialogue-graph
+# A custom dialogue graph system for Unity
+
+Currently in development
