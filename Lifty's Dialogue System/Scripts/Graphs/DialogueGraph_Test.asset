@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f860f4a11859344a1ede9d419077c3, type: 3}
+  m_Name: DialogueGraph_Test
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _connectedPorts
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 9dc2140e-5df7-4450-b370-ceeffb3716a8_OutConnection
+    - Name: $v
+      Entry: 1
+      Data: af7cfa39-e709-4f2d-be6d-1e637ca8ee2d_InConnection
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _nodes:
+  - rid: 1062702322830016591
+  - rid: 1062702322830016593
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 1062702322830016591
+      type: {class: DialogueNode_Start, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: 9dc2140e-5df7-4450-b370-ceeffb3716a8
+        _position:
+          serializedVersion: 2
+          x: 271
+          y: 224
+          width: 116
+          height: 77
+        TypeName: Lifty.DialogueSystem.DialogueNode_Start, DialogueGraph, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        OutConnection:
+          rid: 1062702322830016593
+    - rid: 1062702322830016593
+      type: {class: DialogueNode_Log, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: af7cfa39-e709-4f2d-be6d-1e637ca8ee2d
+        _position:
+          serializedVersion: 2
+          x: 562
+          y: 224
+          width: 112
+          height: 101
+        TypeName: Lifty.DialogueSystem.DialogueNode_Log, DialogueGraph, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        InConnection:
+          rid: 1062702322830016591
+        LogConnection:
+          rid: -2
+        LogString: Debug Log Node
+        OutConnection:
+          rid: 1062702322830016596
+    - rid: 1062702322830016596
+      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: 
+        _position:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        TypeName: 

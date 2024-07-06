@@ -1,0 +1,29 @@
+DialogueGraphView {
+    flex-grow: 1;
+}
+
+#Grid {
+    --thick-lines: 0;
+    --spacing: 15;
+    --grid-background-color: rgb(35, 35, 35);
+    --line-color: rgb(32, 32, 32);
+}
+
+.invisible-connector > #connector, .invisible-connector > .connectorText {
+    display: none;
+}
+
+.dialogue-node-title {
+    background-color: #393939;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 36px;
+}
+
+.dialogue-node-data-string {
+    background-color: #315168;
+}
+
+.dialogue-node-data-integer {
+    background-color: #2D5C42;
+}
