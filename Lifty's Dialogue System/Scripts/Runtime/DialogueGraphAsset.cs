@@ -1,31 +1,23 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Lifty.DialogueSystem
 {
     [CreateAssetMenu(fileName = "Dialogue Graph", menuName = "Lifty's Dialogue/New Dialogue Graph")]
-    public class DialogueGraphAsset : SerializedScriptableObject
+    public class DialogueGraphAsset : ScriptableObject
     {
-        [SerializeReference] private List<DialogueGraphNode> _nodes;
         public List<DialogueGraphNode> Nodes => _nodes;
-        
-        [OdinSerialize] private Dictionary<string, string> _connectedPorts;
-        public Dictionary<string, string> ConnectedPorts => _connectedPorts;
+        [SerializeReference] private List<DialogueGraphNode> _nodes;
+
+        public List<DialogueGraphConnection> ConnectedPorts => _connectedPorts;
+        [SerializeReference] private List<DialogueGraphConnection> _connectedPorts;
 
         public DialogueGraphAsset()
         {
             _nodes = new List<DialogueGraphNode>();
-            _connectedPorts = new Dictionary<string, string>();
-        }
-
-        [ContextMenu("Reset Graph")]
-        public void Reset()
-        {
-            _nodes = new List<DialogueGraphNode>();
-            _connectedPorts = new Dictionary<string, string>();
+            _connectedPorts = new List<DialogueGraphConnection>();
         }
 
         public DialogueNode_Start GetStartNode()
@@ -40,6 +32,21 @@ namespace Lifty.DialogueSystem
             if (startNodes.Length > 1) Debug.LogWarning("Multiple start nodes in graph. Might break execution.");
 
             return startNodes[0];
+        }
+
+        public void AddConnection(string outPortId, string inPortId)
+        {
+            _connectedPorts.Add(new DialogueGraphConnection(outPortId, inPortId));
+        }
+
+        public void RemoveConnection(string outPortId)
+        {
+            for (int i = _connectedPorts.Count - 1; i >= 0; i--)
+            {
+                if (_connectedPorts[i].OutPortID != outPortId) continue;
+
+                _connectedPorts.Remove(_connectedPorts[i]);
+            }
         }
     }
 }

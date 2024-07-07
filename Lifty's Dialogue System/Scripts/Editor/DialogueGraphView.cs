@@ -150,7 +150,7 @@ namespace Lifty.DialogueSystem.Editor
             outputNode.ConnectNode(edge.output.name, inputNode.Node);
             inputNode.ConnectNode(edge.input.name, outputNode.Node);
             
-            _dialogueGraph.ConnectedPorts.Add(edge.output.name, edge.input.name);
+            _dialogueGraph.AddConnection(edge.output.name, edge.input.name);
         }
 
         private void RemoveEdge(Edge edge)
@@ -161,7 +161,7 @@ namespace Lifty.DialogueSystem.Editor
             outputNode.DisconnectNode(edge.output.name);
             inputNode.DisconnectNode(edge.input.name);
             
-            _dialogueGraph.ConnectedPorts.Remove(edge.output.name);
+            _dialogueGraph.RemoveConnection(edge.output.name);
         }
 
         private void RemoveNode(DialogueGraphEditorNode node)
@@ -172,7 +172,7 @@ namespace Lifty.DialogueSystem.Editor
 
             foreach (var port in node.Ports)
             {
-                _dialogueGraph.ConnectedPorts.Remove(port.Value.name);
+                _dialogueGraph.RemoveConnection(port.Value.name);
             }
             
             GetAllPorts();
@@ -194,21 +194,21 @@ namespace Lifty.DialogueSystem.Editor
             
             foreach (var connectedPort in _dialogueGraph.ConnectedPorts)
             {
-                if (!_allPorts.ContainsKey(connectedPort.Key) || !_allPorts.ContainsKey(connectedPort.Value))
+                if (!_allPorts.ContainsKey(connectedPort.OutPortID) || !_allPorts.ContainsKey(connectedPort.InPortID))
                 {
                     Debug.LogError("DIALOGUE GRAPH: It seems some port nodes were renamed or something else happened, so their connections got lost!");
-                    _portsToRemove.Add(connectedPort.Key);
+                    _portsToRemove.Add(connectedPort.OutPortID);
                     continue;
                 }
                 
-                Port outPort = _allPorts[connectedPort.Key];
-                Port inPort = _allPorts[connectedPort.Value];
+                Port outPort = _allPorts[connectedPort.OutPortID];
+                Port inPort = _allPorts[connectedPort.InPortID];
 
                 Edge edge = outPort.ConnectTo(inPort);
                 AddElement(edge);
             }
             
-            _portsToRemove.ForEach(port => _dialogueGraph.ConnectedPorts.Remove(port));
+            _portsToRemove.ForEach(port => _dialogueGraph.RemoveConnection(port));
             _graphNodes.ForEach(x => x.UpdatePorts());
         }
 

@@ -6,13 +6,16 @@ namespace Lifty.DialogueSystem
     [Serializable]
     public class DialogueGraphConnection
     {
-        public DialogueGraphNode Node;
-        public string ConnectedPortName;
+        public string OutPortID => _outPortID;
+        [SerializeField] private string _outPortID;
 
-        public DialogueGraphConnection(DialogueGraphNode node, string connectedPortName)
+        public string InPortID => _inPortID;
+        [SerializeField] private string _inPortID;
+
+        public DialogueGraphConnection(string outPortID, string inPortID)
         {
-            Node = node;
-            ConnectedPortName = connectedPortName;
+            _outPortID = outPortID;
+            _inPortID = inPortID;
         }
     }
 }

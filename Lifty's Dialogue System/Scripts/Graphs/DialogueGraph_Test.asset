@@ -12,155 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f860f4a11859344a1ede9d419077c3, type: 3}
   m_Name: DialogueGraph_Test
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _connectedPorts
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String,
-        mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 10
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 5b0115d9-032d-4f88-8e6b-2cecfca4a0f8_OutConnection
-    - Name: $v
-      Entry: 1
-      Data: b6dc287b-9c4b-40c0-97b2-51997c796cb2_InConnection
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_OutConnection
-    - Name: $v
-      Entry: 1
-      Data: adf90f58-0384-43c7-8f50-31688ee0ea6e_InConnection
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_OutVariableValue
-    - Name: $v
-      Entry: 1
-      Data: 4775b6ee-c863-45d4-8e84-d36fa57addd4_InStringOne
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: f16845f3-efd3-4fe5-a0d9-f53e1d7cf1dd_OutString
-    - Name: $v
-      Entry: 1
-      Data: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_InVariableValue
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 4775b6ee-c863-45d4-8e84-d36fa57addd4_OutStringValue
-    - Name: $v
-      Entry: 1
-      Data: adf90f58-0384-43c7-8f50-31688ee0ea6e_InLogString
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: adf90f58-0384-43c7-8f50-31688ee0ea6e_OutConnection
-    - Name: $v
-      Entry: 1
-      Data: 5475e714-9007-4caa-848c-477d5663509e_InConnection
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 491bef49-45c2-44d7-a20a-f5b852065e31_OutVariableValue
-    - Name: $v
-      Entry: 1
-      Data: cafa9963-cbd3-4656-a38f-a6de31e5cecc_InStringOne
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: cafa9963-cbd3-4656-a38f-a6de31e5cecc_OutStringValue
-    - Name: $v
-      Entry: 1
-      Data: 5475e714-9007-4caa-848c-477d5663509e_InLogString
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: b6dc287b-9c4b-40c0-97b2-51997c796cb2_OutConnection
-    - Name: $v
-      Entry: 1
-      Data: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_InConnection
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 8bdd83f2-ce3f-48a5-93ef-29f771dd4879_OutVariableValue
-    - Name: $v
-      Entry: 1
-      Data: b6dc287b-9c4b-40c0-97b2-51997c796cb2_InLogString
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _nodes:
   - rid: 1062702345502851202
   - rid: 1062702345502851210
@@ -172,6 +23,17 @@ MonoBehaviour:
   - rid: 1062702345502851303
   - rid: 1062702345502851309
   - rid: 1062702345502851313
+  _connectedPorts:
+  - rid: 1062702354878693452
+  - rid: 1062702354878693453
+  - rid: 1062702354878693454
+  - rid: 1062702354878693455
+  - rid: 1062702354878693456
+  - rid: 1062702354878693457
+  - rid: 1062702354878693458
+  - rid: 1062702354878693459
+  - rid: 1062702354878693460
+  - rid: 1062702354878693461
   references:
     version: 2
     RefIds:
@@ -197,7 +59,7 @@ MonoBehaviour:
         _guid: adf90f58-0384-43c7-8f50-31688ee0ea6e
         _position:
           serializedVersion: 2
-          x: 989
+          x: 996
           y: 275
           width: 112
           height: 101
@@ -429,3 +291,53 @@ MonoBehaviour:
           width: 0
           height: 0
         TypeName: 
+    - rid: 1062702354878693452
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: 5b0115d9-032d-4f88-8e6b-2cecfca4a0f8_OutConnection
+        _inPortID: b6dc287b-9c4b-40c0-97b2-51997c796cb2_InConnection
+    - rid: 1062702354878693453
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: 8bdd83f2-ce3f-48a5-93ef-29f771dd4879_OutVariableValue
+        _inPortID: b6dc287b-9c4b-40c0-97b2-51997c796cb2_InLogString
+    - rid: 1062702354878693454
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: b6dc287b-9c4b-40c0-97b2-51997c796cb2_OutConnection
+        _inPortID: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_InConnection
+    - rid: 1062702354878693455
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: f16845f3-efd3-4fe5-a0d9-f53e1d7cf1dd_OutString
+        _inPortID: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_InVariableValue
+    - rid: 1062702354878693456
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_OutConnection
+        _inPortID: adf90f58-0384-43c7-8f50-31688ee0ea6e_InConnection
+    - rid: 1062702354878693457
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_OutVariableValue
+        _inPortID: 4775b6ee-c863-45d4-8e84-d36fa57addd4_InStringOne
+    - rid: 1062702354878693458
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: 4775b6ee-c863-45d4-8e84-d36fa57addd4_OutStringValue
+        _inPortID: adf90f58-0384-43c7-8f50-31688ee0ea6e_InLogString
+    - rid: 1062702354878693459
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: adf90f58-0384-43c7-8f50-31688ee0ea6e_OutConnection
+        _inPortID: 5475e714-9007-4caa-848c-477d5663509e_InConnection
+    - rid: 1062702354878693460
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: cafa9963-cbd3-4656-a38f-a6de31e5cecc_OutStringValue
+        _inPortID: 5475e714-9007-4caa-848c-477d5663509e_InLogString
+    - rid: 1062702354878693461
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: 491bef49-45c2-44d7-a20a-f5b852065e31_OutVariableValue
+        _inPortID: cafa9963-cbd3-4656-a38f-a6de31e5cecc_InStringOne
