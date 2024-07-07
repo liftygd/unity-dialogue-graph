@@ -6,7 +6,7 @@ namespace Lifty.DialogueSystem
     {
         protected T _data;
 
-        public virtual T GetData()
+        public virtual T GetData(DialogueGraphRunner runner)
         {
             return _data;
         }

@@ -6,44 +6,43 @@ namespace Lifty.DialogueSystem
     public class DialogueNode_StringAppend : DialogueGraphDataNode<string>
     {
         [NodeFlow("String 1", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.StringPort))]
-        [SerializeReference] public DialogueGraphNode StringOneIn = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode InStringOne = new DialogueGraphNode(true);
         
         [NodeFlowField("String 1")] 
-        public string StringOneField;
+        public string FieldStringOne;
+        private string _stringOne;
         
         [NodeFlow("String 2", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.StringPort))]
-        [SerializeReference] public DialogueGraphNode StringTwoIn = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode InStringTwo = new DialogueGraphNode(true);
         
         [NodeFlowField("String 2")] 
-        public string StringTwoField;
+        public string FieldStringTwo;
+        private string _stringTwo;
         
         [NodeFlow("Out", NodeFlowType.FlowOutput, typeof(DialogueGraphPortTypes.StringPort))]
-        [SerializeReference] public DialogueGraphNode OutConnection = new DialogueGraphNode(true);
-        
-        private string _addStringOne;
-        private string _addStringTwo;
-        
+        [SerializeReference] public DialogueGraphNode OutStringValue = new DialogueGraphNode(true);
+
         public DialogueNode_StringAppend() : base()
         {
-            StringOneField = "Text 1";
-            StringTwoField = "Text 2";
+            FieldStringOne = "Text 1";
+            FieldStringTwo = "Text 2";
         }
-        
-        public override void Process(DialogueGraphRunner runner)
-        {
-            base.Process(runner);
 
-            if (StringOneIn != null && StringOneIn.ID != "")
-                _addStringOne = GetDataFromNode<string>(StringOneIn, runner);
+        public override string GetData(DialogueGraphRunner runner)
+        {
+            if (InStringOne != null && InStringOne.ID != "")
+                _stringOne = GetDataFromNode<string>(InStringOne, runner);
             else
-                _addStringOne = StringOneField;
+                _stringOne = FieldStringOne;
             
-            if (StringTwoIn != null && StringTwoIn.ID != "")
-                _addStringTwo = GetDataFromNode<string>(StringTwoIn, runner);
+            if (InStringTwo != null && InStringTwo.ID != "")
+                _stringTwo = GetDataFromNode<string>(InStringTwo, runner);
             else
-                _addStringTwo = StringTwoField;
+                _stringTwo = FieldStringTwo;
             
-            _data = _addStringOne + _addStringTwo;
+            _data = _stringOne + _stringTwo;
+
+            return base.GetData(runner);
         }
     }
 }

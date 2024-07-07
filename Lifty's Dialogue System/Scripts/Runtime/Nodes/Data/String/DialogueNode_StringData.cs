@@ -7,23 +7,23 @@ namespace Lifty.DialogueSystem
     public class DialogueNode_StringData : DialogueGraphDataNode<string>
     {
         [NodeFlow("", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.EmptyPort))]
-        [SerializeReference] public DialogueGraphNode InConnection = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode InString = new DialogueGraphNode(true);
 
         [NodeFlowField("")] 
-        public string StringField;
+        public string FieldString;
         
         [NodeFlow("Out", NodeFlowType.FlowOutput, typeof(DialogueGraphPortTypes.StringPort))]
-        [SerializeReference] public DialogueGraphNode OutConnection = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode OutString = new DialogueGraphNode(true);
         
         public DialogueNode_StringData() : base()
         {
-            StringField = "Text";
+            FieldString = "Text";
         }
 
-        public override void Process(DialogueGraphRunner runner)
+        public override string GetData(DialogueGraphRunner runner)
         {
-            base.Process(runner);
-            _data = StringField;
+            _data = FieldString;
+            return base.GetData(runner);
         }
     }
 }

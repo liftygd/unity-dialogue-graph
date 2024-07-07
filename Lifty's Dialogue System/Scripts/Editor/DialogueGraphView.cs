@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.Graphs;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Edge = UnityEditor.Experimental.GraphView.Edge;
 
 namespace Lifty.DialogueSystem.Editor
 {
@@ -42,7 +45,7 @@ namespace Lifty.DialogueSystem.Editor
             bg.name = "Grid";
             Add(bg);
             bg.SendToBack();
-            
+
             this.AddManipulator(new ContentDragger());
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
@@ -187,16 +190,25 @@ namespace Lifty.DialogueSystem.Editor
         private void DrawConnections()
         {
             GetAllPorts();
+            List<string> _portsToRemove = new List<string>();
             
             foreach (var connectedPort in _dialogueGraph.ConnectedPorts)
             {
-                Port inPort = _allPorts[connectedPort.Key];
-                Port outPort = _allPorts[connectedPort.Value];
+                if (!_allPorts.ContainsKey(connectedPort.Key) || !_allPorts.ContainsKey(connectedPort.Value))
+                {
+                    Debug.LogError("DIALOGUE GRAPH: It seems some port nodes were renamed or something else happened, so their connections got lost!");
+                    _portsToRemove.Add(connectedPort.Key);
+                    continue;
+                }
+                
+                Port outPort = _allPorts[connectedPort.Key];
+                Port inPort = _allPorts[connectedPort.Value];
 
-                Edge edge = inPort.ConnectTo(outPort);
+                Edge edge = outPort.ConnectTo(inPort);
                 AddElement(edge);
             }
             
+            _portsToRemove.ForEach(port => _dialogueGraph.ConnectedPorts.Remove(port));
             _graphNodes.ForEach(x => x.UpdatePorts());
         }
 

@@ -9,29 +9,28 @@ namespace Lifty.DialogueSystem
         [SerializeReference] public DialogueGraphNode InConnection = new DialogueGraphNode(true);
         
         [NodeFlow("Log", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.StringPort))]
-        [SerializeReference] public DialogueGraphNode LogConnection = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode InLogString = new DialogueGraphNode(true);
         
         [NodeFlowField("Log")] 
-        public string LogString;
+        public string FieldLogString;
+        private string _logString;
 
         [NodeFlow("Out", NodeFlowType.FlowOutput)]
         [SerializeReference] public DialogueGraphNode OutConnection = new DialogueGraphNode(true);
 
-        private string _logString;
-
         public DialogueNode_Log() : base()
         {
-            LogString = "Debug Log Node";
+            FieldLogString = "Debug Log Node";
         }
 
         public override void Process(DialogueGraphRunner runner)
         {
             base.Process(runner);
 
-            if (LogConnection != null && LogConnection.ID != "")
-                _logString = GetDataFromNode<string>(LogConnection, runner);
+            if (InLogString != null && InLogString.ID != "")
+                _logString = GetDataFromNode<string>(InLogString, runner);
             else
-                _logString = LogString;
+                _logString = FieldLogString;
             
             Debug.Log(_logString);
             OutConnection.Process(runner);

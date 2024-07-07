@@ -9,7 +9,7 @@ namespace Lifty.DialogueSystem
         [SerializeReference] public DialogueGraphNode InConnection = new DialogueGraphNode(true);
         
         [NodeFlow("Condition", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.BooleanPort))]
-        [SerializeReference] public DialogueGraphNode BoolConnection = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode InBool = new DialogueGraphNode(true);
         
         [NodeFlowField("Condition")] 
         public bool ConditionField;
@@ -30,8 +30,8 @@ namespace Lifty.DialogueSystem
         {
             base.Process(runner);
 
-            if (BoolConnection != null && BoolConnection.ID != "")
-                _condition = GetDataFromNode<bool>(BoolConnection, runner);
+            if (InBool != null && InBool.ID != "")
+                _condition = GetDataFromNode<bool>(InBool, runner);
             else
                 _condition = ConditionField;
             

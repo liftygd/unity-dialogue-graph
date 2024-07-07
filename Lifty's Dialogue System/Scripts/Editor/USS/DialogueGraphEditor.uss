@@ -13,6 +13,10 @@ DialogueGraphView {
     display: none;
 }
 
+.disable-element {
+    display: none;
+}
+
 .dialogue-node-title {
     background-color: #393939;
     flex-direction: row;

@@ -18,5 +18,15 @@ namespace Lifty.DialogueSystem
             var startNode = _dialogueGraph.GetStartNode();
             startNode.Process(this);
         }
+
+        public T GetVariableValue<T>(string variableName)
+        {
+            return (T) DialogueGraphController.Instance.GetVariableValue<T>(variableName);
+        }
+
+        public void SetVariableValue<T>(string variableName, T variableValue)
+        {
+            DialogueGraphController.Instance.SetVariableValue<T>(variableName, variableValue);
+        }
     }
 }

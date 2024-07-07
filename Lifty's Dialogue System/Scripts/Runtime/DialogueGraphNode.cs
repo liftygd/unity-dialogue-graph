@@ -41,9 +41,7 @@ namespace Lifty.DialogueSystem
         protected T GetDataFromNode<T>(DialogueGraphNode node, DialogueGraphRunner runner)
         {
             var dataNode = (DialogueGraphDataNode<T>) node;
-            dataNode.Process(runner);
-
-            return dataNode.GetData();
+            return dataNode.GetData(runner);
         }
     }
 }

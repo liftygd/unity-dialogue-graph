@@ -6,35 +6,32 @@ namespace Lifty.DialogueSystem
     public class DialogueNode_IntegerToString : DialogueGraphDataNode<string>
     {
         [NodeFlow("In", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.IntegerPort))]
-        [SerializeReference] public DialogueGraphNode InConnection = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode InIntValue = new DialogueGraphNode(true);
 
         [NodeFlowField("In")] 
-        public int IntField;
-        private int _intFieldValue;
+        public int FieldIntValue;
+        private int _intValue;
         
         [NodeFlow("Out", NodeFlowType.FlowOutput, typeof(DialogueGraphPortTypes.StringPort))]
-        [SerializeReference] public DialogueGraphNode OutConnection = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode OutStringValue = new DialogueGraphNode(true);
         
         public DialogueNode_IntegerToString() : base()
         {
-            IntField = 0;
+            FieldIntValue = 0;
         }
 
-        public override void Process(DialogueGraphRunner runner)
+        public override string GetData(DialogueGraphRunner runner)
         {
-            base.Process(runner);
-            
-            if (InConnection != null && InConnection.ID != "")
+            if (InIntValue != null && InIntValue.ID != "")
             {
-                var node = ((DialogueGraphDataNode<int>) InConnection);
-                node.Process(runner);
-                
-                _intFieldValue = node.GetData();
+                _intValue = GetDataFromNode<int>(InIntValue, runner);
             }
             else
-                _intFieldValue = IntField;
+                _intValue = FieldIntValue;
             
-            _data = _intFieldValue.ToString();
+            _data = _intValue.ToString();
+
+            return base.GetData(runner);
         }
     }
 }

@@ -34,16 +34,16 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 11
+      Data: 10
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9dc2140e-5df7-4450-b370-ceeffb3716a8_OutConnection
+      Data: 5b0115d9-032d-4f88-8e6b-2cecfca4a0f8_OutConnection
     - Name: $v
       Entry: 1
-      Data: 17ef18ae-cc98-4161-adcc-41dfed6be92e_InConnection
+      Data: b6dc287b-9c4b-40c0-97b2-51997c796cb2_InConnection
     - Name: 
       Entry: 8
       Data: 
@@ -52,10 +52,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: be614a44-9ba4-4849-b323-3150b7b7c81c_OutConnection
+      Data: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_OutConnection
     - Name: $v
       Entry: 1
-      Data: 626a018f-3a2b-4de2-b81d-9eb56f0f53d1_InConnection
+      Data: adf90f58-0384-43c7-8f50-31688ee0ea6e_InConnection
     - Name: 
       Entry: 8
       Data: 
@@ -64,10 +64,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 9b93015d-86cf-4eb5-be72-442693d5f543_OutConnection
+      Data: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_OutVariableValue
     - Name: $v
       Entry: 1
-      Data: 0ff0dc4b-52ae-49dc-9863-a7afc0180115_StringOneIn
+      Data: 4775b6ee-c863-45d4-8e84-d36fa57addd4_InStringOne
     - Name: 
       Entry: 8
       Data: 
@@ -76,10 +76,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 626a018f-3a2b-4de2-b81d-9eb56f0f53d1_OutConnection
+      Data: f16845f3-efd3-4fe5-a0d9-f53e1d7cf1dd_OutString
     - Name: $v
       Entry: 1
-      Data: 0ff0dc4b-52ae-49dc-9863-a7afc0180115_StringTwoIn
+      Data: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_InVariableValue
     - Name: 
       Entry: 8
       Data: 
@@ -88,10 +88,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 0ff0dc4b-52ae-49dc-9863-a7afc0180115_OutConnection
+      Data: 4775b6ee-c863-45d4-8e84-d36fa57addd4_OutStringValue
     - Name: $v
       Entry: 1
-      Data: af7cfa39-e709-4f2d-be6d-1e637ca8ee2d_LogConnection
+      Data: adf90f58-0384-43c7-8f50-31688ee0ea6e_InLogString
     - Name: 
       Entry: 8
       Data: 
@@ -100,10 +100,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 871730a6-c50b-40fe-871f-41ea1c8de6ab_OutConnection1
+      Data: adf90f58-0384-43c7-8f50-31688ee0ea6e_OutConnection
     - Name: $v
       Entry: 1
-      Data: e3b2fec5-5a8d-4cf3-9b9b-3796cb5b8e2a_InConnection
+      Data: 5475e714-9007-4caa-848c-477d5663509e_InConnection
     - Name: 
       Entry: 8
       Data: 
@@ -112,10 +112,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 871730a6-c50b-40fe-871f-41ea1c8de6ab_OutConnection2
+      Data: 491bef49-45c2-44d7-a20a-f5b852065e31_OutVariableValue
     - Name: $v
       Entry: 1
-      Data: a12e933d-cd5e-4971-a30e-d8fe7dd301c0_InConnection
+      Data: cafa9963-cbd3-4656-a38f-a6de31e5cecc_InStringOne
     - Name: 
       Entry: 8
       Data: 
@@ -124,10 +124,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 871730a6-c50b-40fe-871f-41ea1c8de6ab_OutConnection3
+      Data: cafa9963-cbd3-4656-a38f-a6de31e5cecc_OutStringValue
     - Name: $v
       Entry: 1
-      Data: a12e933d-cd5e-4971-a30e-d8fe7dd301c0_InConnection
+      Data: 5475e714-9007-4caa-848c-477d5663509e_InLogString
     - Name: 
       Entry: 8
       Data: 
@@ -136,10 +136,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 17ef18ae-cc98-4161-adcc-41dfed6be92e_OutConnectionTrue
+      Data: b6dc287b-9c4b-40c0-97b2-51997c796cb2_OutConnection
     - Name: $v
       Entry: 1
-      Data: 871730a6-c50b-40fe-871f-41ea1c8de6ab_InConnection
+      Data: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f_InConnection
     - Name: 
       Entry: 8
       Data: 
@@ -148,22 +148,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: 5ed47e89-b3be-4fdc-aad5-4c78c4cee3f3_OutConnection
+      Data: 8bdd83f2-ce3f-48a5-93ef-29f771dd4879_OutVariableValue
     - Name: $v
       Entry: 1
-      Data: 17ef18ae-cc98-4161-adcc-41dfed6be92e_BoolConnection
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 17ef18ae-cc98-4161-adcc-41dfed6be92e_OutConnectionFalse
-    - Name: $v
-      Entry: 1
-      Data: af7cfa39-e709-4f2d-be6d-1e637ca8ee2d_InConnection
+      Data: b6dc287b-9c4b-40c0-97b2-51997c796cb2_InLogString
     - Name: 
       Entry: 8
       Data: 
@@ -174,129 +162,107 @@ MonoBehaviour:
       Entry: 8
       Data: 
   _nodes:
-  - rid: 1062702322830016591
-  - rid: 1062702322830016593
-  - rid: 1062702325950840832
-  - rid: 1062702328677138505
-  - rid: 1062702328677138508
-  - rid: 1062702328677138511
-  - rid: 1062702328677138535
-  - rid: 1062702328677138539
-  - rid: 1062702328677138543
-  - rid: 1062702328677138563
-  - rid: 1062702328677138568
+  - rid: 1062702345502851202
+  - rid: 1062702345502851210
+  - rid: 1062702345502851268
+  - rid: 1062702345502851275
+  - rid: 1062702345502851290
+  - rid: 1062702345502851294
+  - rid: 1062702345502851298
+  - rid: 1062702345502851303
+  - rid: 1062702345502851309
+  - rid: 1062702345502851313
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 1062702322830016591
+    - rid: 1062702345502851202
       type: {class: DialogueNode_Start, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
-        _guid: 9dc2140e-5df7-4450-b370-ceeffb3716a8
+        _guid: 5b0115d9-032d-4f88-8e6b-2cecfca4a0f8
         _position:
           serializedVersion: 2
-          x: 66
-          y: 224
+          x: -82
+          y: 275
           width: 116
           height: 77
         TypeName: Lifty.DialogueSystem.DialogueNode_Start, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         OutConnection:
-          rid: 1062702328677138563
-    - rid: 1062702322830016593
+          rid: 1062702345502851309
+    - rid: 1062702345502851210
       type: {class: DialogueNode_Log, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
-        _guid: af7cfa39-e709-4f2d-be6d-1e637ca8ee2d
+        _guid: adf90f58-0384-43c7-8f50-31688ee0ea6e
         _position:
           serializedVersion: 2
-          x: 523
-          y: 415
+          x: 989
+          y: 275
           width: 112
           height: 101
         TypeName: Lifty.DialogueSystem.DialogueNode_Log, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         InConnection:
-          rid: 1062702328677138563
-        LogConnection:
-          rid: 1062702328677138511
-        LogString: Debug Log Node
+          rid: 1062702345502851268
+        InLogString:
+          rid: 1062702345502851290
+        FieldLogString: Debug Log Node
         OutConnection:
-          rid: 1062702322830016596
-    - rid: 1062702322830016596
-      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+          rid: 1062702345502851294
+    - rid: 1062702345502851268
+      type: {class: DialogueNode_SetStringVariable, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
-        _guid: 
+        _guid: 95fd4b2b-d50f-430f-91b9-0e9e1308dc5f
         _position:
           serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        TypeName: 
-    - rid: 1062702325950840832
-      type: {class: DialogueNode_IntegerData, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: be614a44-9ba4-4849-b323-3150b7b7c81c
-        _position:
-          serializedVersion: 2
-          x: 26
-          y: 656
-          width: 103
-          height: 77
-        TypeName: Lifty.DialogueSystem.DialogueNode_IntegerData, DialogueGraph, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        InConnection:
-          rid: 1062702325950840833
-        IntegerField: 155
-        OutConnection:
-          rid: 1062702328677138505
-    - rid: 1062702325950840833
-      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 
-        _position:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        TypeName: 
-    - rid: 1062702328677138505
-      type: {class: DialogueNode_IntegerToString, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 626a018f-3a2b-4de2-b81d-9eb56f0f53d1
-        _position:
-          serializedVersion: 2
-          x: 139
-          y: 656
-          width: 141
-          height: 77
-        TypeName: Lifty.DialogueSystem.DialogueNode_IntegerToString, DialogueGraph,
+          x: 423
+          y: 275
+          width: 292
+          height: 125
+        TypeName: Lifty.DialogueSystem.DialogueNode_SetStringVariable, DialogueGraph,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         InConnection:
-          rid: 1062702325950840832
-        IntField: 0
+          rid: 1062702345502851309
+        InVariableName:
+          rid: 1062702345502851270
+        FieldVariableName: '%test%'
+        InVariableValue:
+          rid: 1062702345502851275
+        FieldVariableValue: Variable Number
         OutConnection:
-          rid: 1062702328677138511
-    - rid: 1062702328677138508
-      type: {class: DialogueNode_StringData, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+          rid: 1062702345502851210
+        OutVariableValue:
+          rid: 1062702345502851290
+    - rid: 1062702345502851270
+      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
-        _guid: 9b93015d-86cf-4eb5-be72-442693d5f543
+        _guid: 
         _position:
           serializedVersion: 2
-          x: 106
-          y: 489
-          width: 174
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        TypeName: 
+    - rid: 1062702345502851275
+      type: {class: DialogueNode_StringData, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: f16845f3-efd3-4fe5-a0d9-f53e1d7cf1dd
+        _position:
+          serializedVersion: 2
+          x: 215
+          y: 424
+          width: 152
           height: 77
         TypeName: Lifty.DialogueSystem.DialogueNode_StringData, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-        InConnection:
-          rid: 1062702328677138509
-        StringField: 'Current Balance: '
-        OutConnection:
-          rid: 1062702328677138511
-    - rid: 1062702328677138509
+        InString:
+          rid: 1062702345502851276
+        FieldString: Test Variable
+        OutString:
+          rid: 1062702345502851268
+    - rid: 1062702345502851276
       type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
         _guid: 
@@ -307,46 +273,57 @@ MonoBehaviour:
           width: 0
           height: 0
         TypeName: 
-    - rid: 1062702328677138511
+    - rid: 1062702345502851290
       type: {class: DialogueNode_StringAppend, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
-        _guid: 0ff0dc4b-52ae-49dc-9863-a7afc0180115
+        _guid: 4775b6ee-c863-45d4-8e84-d36fa57addd4
         _position:
           serializedVersion: 2
-          x: 325
-          y: 555
-          width: 133
+          x: 740
+          y: 400
+          width: 182
           height: 101
         TypeName: Lifty.DialogueSystem.DialogueNode_StringAppend, DialogueGraph,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        StringOneIn:
-          rid: 1062702328677138508
-        StringOneField: Text 1
-        StringTwoIn:
-          rid: 1062702328677138505
-        StringTwoField: Text 2
-        OutConnection:
-          rid: 1062702322830016593
-    - rid: 1062702328677138535
-      type: {class: DialogueNode_Log, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+        InStringOne:
+          rid: 1062702345502851268
+        FieldStringOne: Text 1
+        InStringTwo:
+          rid: 1062702345502851292
+        FieldStringTwo: ' 1'
+        OutStringValue:
+          rid: 1062702345502851210
+    - rid: 1062702345502851292
+      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
-        _guid: a12e933d-cd5e-4971-a30e-d8fe7dd301c0
+        _guid: 
         _position:
           serializedVersion: 2
-          x: 766
-          y: 248
-          width: 135
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        TypeName: 
+    - rid: 1062702345502851294
+      type: {class: DialogueNode_Log, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: 5475e714-9007-4caa-848c-477d5663509e
+        _position:
+          serializedVersion: 2
+          x: 1379
+          y: 275
+          width: 112
           height: 101
         TypeName: Lifty.DialogueSystem.DialogueNode_Log, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         InConnection:
-          rid: 1062702328677138543
-        LogConnection:
-          rid: 1062702328677138537
-        LogString: 2
+          rid: 1062702345502851210
+        InLogString:
+          rid: 1062702345502851303
+        FieldLogString: Debug Log Node
         OutConnection:
-          rid: 1062702328677138538
-    - rid: 1062702328677138537
+          rid: 1062702345502851297
+    - rid: 1062702345502851297
       type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
         _guid: 
@@ -357,117 +334,91 @@ MonoBehaviour:
           width: 0
           height: 0
         TypeName: 
-    - rid: 1062702328677138538
-      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+    - rid: 1062702345502851298
+      type: {class: DialogueNode_GetStringVariable, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
-        _guid: 
+        _guid: 491bef49-45c2-44d7-a20a-f5b852065e31
         _position:
           serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        TypeName: 
-    - rid: 1062702328677138539
-      type: {class: DialogueNode_Log, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: e3b2fec5-5a8d-4cf3-9b9b-3796cb5b8e2a
-        _position:
-          serializedVersion: 2
-          x: 766
-          y: 147
-          width: 134
-          height: 101
-        TypeName: Lifty.DialogueSystem.DialogueNode_Log, DialogueGraph, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        InConnection:
-          rid: -2
-        LogConnection:
-          rid: 1062702328677138541
-        LogString: 1
-        OutConnection:
-          rid: 1062702328677138542
-    - rid: 1062702328677138541
-      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 
-        _position:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        TypeName: 
-    - rid: 1062702328677138542
-      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 
-        _position:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        TypeName: 
-    - rid: 1062702328677138543
-      type: {class: DialogueNode_RandomExit3, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 871730a6-c50b-40fe-871f-41ea1c8de6ab
-        _position:
-          serializedVersion: 2
-          x: 523
-          y: 224
-          width: 137
-          height: 125
-        TypeName: Lifty.DialogueSystem.DialogueNode_RandomExit3, DialogueGraph, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        InConnection:
-          rid: 1062702328677138563
-        OutConnection1:
-          rid: 1062702328677138539
-        OutConnection2:
-          rid: 1062702328677138535
-        OutConnection3:
-          rid: 1062702328677138535
-    - rid: 1062702328677138563
-      type: {class: DialogueNode_Condition, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 17ef18ae-cc98-4161-adcc-41dfed6be92e
-        _position:
-          serializedVersion: 2
-          x: 241
-          y: 224
-          width: 172
-          height: 101
-        TypeName: Lifty.DialogueSystem.DialogueNode_Condition, DialogueGraph, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        InConnection:
-          rid: 1062702322830016591
-        BoolConnection:
-          rid: 1062702328677138568
-        ConditionField: 0
-        OutConnectionTrue:
-          rid: 1062702328677138543
-        OutConnectionFalse:
-          rid: 1062702322830016593
-    - rid: 1062702328677138568
-      type: {class: DialogueNode_BooleanData, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 5ed47e89-b3be-4fdc-aad5-4c78c4cee3f3
-        _position:
-          serializedVersion: 2
-          x: 90
-          y: 349
-          width: 92
+          x: 898
+          y: 523
+          width: 254
           height: 77
-        TypeName: Lifty.DialogueSystem.DialogueNode_BooleanData, DialogueGraph, Version=0.0.0.0,
+        TypeName: Lifty.DialogueSystem.DialogueNode_GetStringVariable, DialogueGraph,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        InVariableName:
+          rid: 1062702345502851300
+        FieldVariableName: '%test%'
+        OutVariableValue:
+          rid: 1062702345502851303
+    - rid: 1062702345502851300
+      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: 
+        _position:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        TypeName: 
+    - rid: 1062702345502851303
+      type: {class: DialogueNode_StringAppend, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: cafa9963-cbd3-4656-a38f-a6de31e5cecc
+        _position:
+          serializedVersion: 2
+          x: 1180
+          y: 400
+          width: 179
+          height: 101
+        TypeName: Lifty.DialogueSystem.DialogueNode_StringAppend, DialogueGraph,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        InStringOne:
+          rid: 1062702345502851298
+        FieldStringOne: ' 2'
+        InStringTwo:
+          rid: -2
+        FieldStringTwo: ' 2'
+        OutStringValue:
+          rid: 1062702345502851294
+    - rid: 1062702345502851309
+      type: {class: DialogueNode_Log, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: b6dc287b-9c4b-40c0-97b2-51997c796cb2
+        _position:
+          serializedVersion: 2
+          x: 131
+          y: 275
+          width: 112
+          height: 101
+        TypeName: Lifty.DialogueSystem.DialogueNode_Log, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         InConnection:
-          rid: 1062702328677138569
-        BooleanField: 0
+          rid: 1062702345502851202
+        InLogString:
+          rid: 1062702345502851313
+        FieldLogString: Debug Log Node
         OutConnection:
-          rid: 1062702328677138563
-    - rid: 1062702328677138569
+          rid: 1062702345502851268
+    - rid: 1062702345502851313
+      type: {class: DialogueNode_GetStringVariable, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: 8bdd83f2-ce3f-48a5-93ef-29f771dd4879
+        _position:
+          serializedVersion: 2
+          x: -161
+          y: 463
+          width: 254
+          height: 77
+        TypeName: Lifty.DialogueSystem.DialogueNode_GetStringVariable, DialogueGraph,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        InVariableName:
+          rid: 1062702345502851314
+        FieldVariableName: '%test%'
+        OutVariableValue:
+          rid: 1062702345502851309
+    - rid: 1062702345502851314
       type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
         _guid: 

@@ -83,7 +83,7 @@ namespace Lifty.DialogueSystem.Editor
                     groupName += entryTitle[i];
                     if (!groups.Contains(groupName))
                     {
-                        tree.Add(new SearchTreeGroupEntry(new GUIContent(entryTitle[i]), i + 1));
+                        tree.Add(new SearchTreeGroupEntry(new GUIContent("> " + entryTitle[i]), i + 1));
                         groups.Add(groupName);
                     }
 

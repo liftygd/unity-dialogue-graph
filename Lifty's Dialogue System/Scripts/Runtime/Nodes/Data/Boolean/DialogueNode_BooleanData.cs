@@ -6,24 +6,23 @@ namespace Lifty.DialogueSystem
     public class DialogueNode_BooleanData : DialogueGraphDataNode<bool>
     {
         [NodeFlow("", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.EmptyPort))]
-        [SerializeReference] public DialogueGraphNode InConnection = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode InBoolean = new DialogueGraphNode(true);
 
         [NodeFlowField("")] 
-        public bool BooleanField;
+        public bool FieldBoolean;
         
         [NodeFlow("Out", NodeFlowType.FlowOutput, typeof(DialogueGraphPortTypes.BooleanPort))]
-        [SerializeReference] public DialogueGraphNode OutConnection = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode OutBoolean = new DialogueGraphNode(true);
         
         public DialogueNode_BooleanData() : base()
         {
-            BooleanField = false;
+            FieldBoolean = false;
         }
 
-        public override void Process(DialogueGraphRunner runner)
+        public override bool GetData(DialogueGraphRunner runner)
         {
-            base.Process(runner);
-            
-            _data = BooleanField;
+            _data = FieldBoolean;
+            return base.GetData(runner);
         }
     }
 }

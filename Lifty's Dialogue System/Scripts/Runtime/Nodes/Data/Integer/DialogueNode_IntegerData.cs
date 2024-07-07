@@ -6,24 +6,23 @@ namespace Lifty.DialogueSystem
     public class DialogueNode_IntegerData : DialogueGraphDataNode<int>
     {
         [NodeFlow("", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.EmptyPort))]
-        [SerializeReference] public DialogueGraphNode InConnection = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode InInteger = new DialogueGraphNode(true);
 
         [NodeFlowField("")] 
         public int IntegerField;
         
         [NodeFlow("Out", NodeFlowType.FlowOutput, typeof(DialogueGraphPortTypes.IntegerPort))]
-        [SerializeReference] public DialogueGraphNode OutConnection = new DialogueGraphNode(true);
+        [SerializeReference] public DialogueGraphNode OutInteger = new DialogueGraphNode(true);
         
         public DialogueNode_IntegerData() : base()
         {
             IntegerField = 0;
         }
 
-        public override void Process(DialogueGraphRunner runner)
+        public override int GetData(DialogueGraphRunner runner)
         {
-            base.Process(runner);
-            
             _data = IntegerField;
+            return base.GetData(runner);
         }
     }
 }
