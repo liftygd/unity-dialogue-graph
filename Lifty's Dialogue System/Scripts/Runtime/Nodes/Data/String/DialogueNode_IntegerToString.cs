@@ -23,9 +23,7 @@ namespace Lifty.DialogueSystem
         public override string GetData(DialogueGraphRunner runner)
         {
             if (InIntValue != null && InIntValue.ID != "")
-            {
                 _intValue = GetDataFromNode<int>(InIntValue, runner);
-            }
             else
                 _intValue = FieldIntValue;
             

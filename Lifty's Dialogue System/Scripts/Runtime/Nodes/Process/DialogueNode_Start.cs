@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Lifty.DialogueSystem
 {
-    [NodeInfo("Start", "Process/Start")]
+    [NodeInfo("Start", "Process/Start", "dialogue-node-process")]
     public class DialogueNode_Start : DialogueGraphNode
     {
         [NodeFlow("Dialogue Start", NodeFlowType.FlowOutput)]

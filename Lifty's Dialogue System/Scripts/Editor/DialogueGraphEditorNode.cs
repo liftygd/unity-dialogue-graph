@@ -22,7 +22,9 @@ namespace Lifty.DialogueSystem.Editor
 
         public DialogueGraphEditorNode(DialogueGraphNode node)
         {
-            this.AddToClassList("dialogue-graph-node");
+            this.AddToClassList("dialogue-node");
+            this.RemoveFromClassList("graphElement");
+            this.RemoveFromClassList("node");
 
             _node = node;
 
@@ -34,6 +36,9 @@ namespace Lifty.DialogueSystem.Editor
             this.titleContainer.AddToClassList(info.TypeClass);
 
             title = info.Title;
+
+            inputContainer.name = "in-ports";
+            outputContainer.name = "out-ports";
             
             string[] depths = info.MenuItem.Split("/");
             foreach (var depth in depths)

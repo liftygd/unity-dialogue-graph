@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Lifty.DialogueSystem
 {
-    [NodeInfo("Debug Log", "Process/Debug Log")]
+    [NodeInfo("Debug Log", "Process/Debug Log", "dialogue-node-process")]
     public class DialogueNode_Log : DialogueGraphNode
     {
         [NodeFlow("In", NodeFlowType.FlowInput)]

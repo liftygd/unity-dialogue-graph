@@ -28,10 +28,8 @@ namespace Lifty.DialogueSystem
             FieldIntegerTwo = 0;
         }
         
-        public override void Process(DialogueGraphRunner runner)
+        public override int GetData(DialogueGraphRunner runner)
         {
-            base.Process(runner);
-
             if (InIntegerOne != null && InIntegerOne.ID != "")
                 _integerOne = GetDataFromNode<int>(InIntegerOne, runner);
             else
@@ -43,6 +41,8 @@ namespace Lifty.DialogueSystem
                 _integerTwo = FieldIntegerTwo;
             
             _data = _integerOne + _integerTwo;
+
+            return base.GetData(runner);
         }
     }
 }

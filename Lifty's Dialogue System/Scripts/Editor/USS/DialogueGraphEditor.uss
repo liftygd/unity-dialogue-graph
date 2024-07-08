@@ -4,9 +4,42 @@ DialogueGraphView {
 
 #Grid {
     --thick-lines: 0;
-    --spacing: 15;
+    --spacing: 35;
     --grid-background-color: rgb(35, 35, 35);
-    --line-color: rgb(32, 32, 32);
+    --line-color: rgb(28, 28, 28);
+}
+
+#top, #in-ports, #out-ports {
+    background-color: #3F3F3F;
+}
+
+#in-ports {
+    color: #D2D2D2;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-size: 12px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+#out-ports {
+    color: #D2D2D2;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-size: 12px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    padding-left: 10px;
+}
+
+#divider, #title-button-container, #selection-border {
+    display: none;
+}
+
+#NodeTitle > #title-label {
+    margin: 6px;
 }
 
 .invisible-connector > #connector, .invisible-connector > .connectorText {
@@ -17,25 +50,95 @@ DialogueGraphView {
     display: none;
 }
 
+.dialogue-node {
+    border-radius: 8px;
+    border-color: #656262;
+    border-width: 3px;
+}
+
+.dialogue-node {
+    scale: 1;
+    transition-duration: 0.1s;
+}
+
+.dialogue-node > #node-border {
+    margin: 0px;
+    border-width: 0px;
+}
+
+.dialogue-node:hover {
+    scale: 1.04;
+    transition-duration: 0.1s;
+}
+
+.dialogue-node:selected {
+    scale: 1;
+    transition-duration: 0.1s;
+}
+
 .dialogue-node-title {
     background-color: #393939;
     flex-direction: row;
     justify-content: space-between;
-    height: 36px;
+    height: 32px;
+}
+
+.dialogue-node-process {
+    background-color: #585b4f;
+}
+
+.process {
+    border-color: #585b4f;
+}
+
+.process:hover, .process:selected {
+    border-color: #7f8675;
 }
 
 .dialogue-node-data-string {
     background-color: #315168;
 }
 
+.string {
+    border-color: #315168;
+}
+
+.string:hover, .string:selected {
+    border-color: #4f7ea4;
+}
+
 .dialogue-node-data-integer {
     background-color: #2D5C42;
+}
+
+.integer {
+    border-color: #2D5C42;
+}
+
+.integer:hover, .integer:selected {
+    border-color: #468d61;
 }
 
 .dialogue-node-data-boolean {
     background-color: #5e2929;
 }
 
+.boolean {
+    border-color: #5e2929;
+}
+
+.boolean:hover, .boolean:selected {
+    border-color: #a64b4b;
+}
+
 .dialogue-node-branch {
     background-color: #5c2d4f;
+}
+
+.branching {
+    border-color: #5c2d4f;
+}
+
+.branching:hover, .branching:selected {
+    border-color: #944c7d;
 }
