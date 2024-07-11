@@ -212,6 +212,21 @@ namespace Lifty.DialogueSystem.Editor
                 return valueField;
             }
             
+            if (field.FieldType == typeof(DialogueLogType))
+            {
+                var valueField = new EnumField();
+                valueField.Init((DialogueLogType) field.GetValue(_node));
+
+                valueField.value = (DialogueLogType) field.GetValue(_node);
+                valueField.RegisterValueChangedCallback(evt =>
+                {
+                    field.SetValue(_node, valueField.value);
+                    DialogueGraphEditorWindow.UnsavedChanges();
+                });
+
+                return valueField;
+            }
+            
             return null;
         }
     }

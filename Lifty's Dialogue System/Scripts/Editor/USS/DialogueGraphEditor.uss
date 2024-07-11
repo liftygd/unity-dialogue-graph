@@ -95,6 +95,18 @@ DialogueGraphView {
     border-color: #7f8675;
 }
 
+.dialogue-node-debug {
+    background-color: #6c4c2a;
+}
+
+.debug {
+    border-color: #5e2929;
+}
+
+.debug:hover, .debug:selected {
+    border-color: #a64b4b;
+}
+
 .dialogue-node-data-string {
     background-color: #315168;
 }

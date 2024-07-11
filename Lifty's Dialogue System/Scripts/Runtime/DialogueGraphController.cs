@@ -14,6 +14,8 @@ namespace Lifty.DialogueSystem
             _variables = new Dictionary<string, object>();
         }
 
+        #region Variables
+        
         private Dictionary<string, object> _variables;
 
         public object GetVariableValue<T>(string variableName)
@@ -40,5 +42,20 @@ namespace Lifty.DialogueSystem
 
             _variables[variableName] = currentVariable;
         }
+        
+        #endregion
+
+        #region Localization
+
+        public DialogueLanguageEnum CurrentDialogueLanguage { get; private set; }
+        public Action DialogueLanguageChanged;
+
+        public void ChangeDialogueLanguage(DialogueLanguageEnum newLanguage)
+        {
+            CurrentDialogueLanguage = newLanguage;
+            DialogueLanguageChanged?.Invoke();
+        }
+
+        #endregion
     }
 }

@@ -6,15 +6,17 @@ namespace Lifty.DialogueSystem
     public class DialogueTextData
     {
         public string PhraseID;
-        public string CharacterName;
         public string Phrase;
+        public string CharacterID;
+        public string CharacterName;
         public int PhraseTime;
 
-        public DialogueTextData(string phraseID = " ", string characterName = " ", string phrase = " ", int phraseTime = 1)
+        public DialogueTextData(string phraseID = "", string phrase = "", string characterID = "", string characterName = "", int phraseTime = 1)
         {
             PhraseID = phraseID;
-            CharacterName = characterName;
             Phrase = phrase;
+            CharacterID = characterID;
+            CharacterName = characterName;
             PhraseTime = phraseTime;
         }
     }
