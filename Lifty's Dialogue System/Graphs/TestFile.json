@@ -1,0 +1,25 @@
+{
+    "Items": [
+        {
+            "PhraseID": "Phrase_1",
+            "Phrase": "Test 1",
+            "CharacterID": "Test_Character",
+            "CharacterName": "",
+            "PhraseTime": 1
+        },
+        {
+            "PhraseID": "Phrase_2",
+            "Phrase": "Test 2",
+            "CharacterID": "Test_Character",
+            "CharacterName": "",
+            "PhraseTime": 1
+        },
+        {
+            "PhraseID": "Phrase_3",
+            "Phrase": "Test 3",
+            "CharacterID": "Test_Character",
+            "CharacterName": "",
+            "PhraseTime": 1
+        }
+    ]
+}
