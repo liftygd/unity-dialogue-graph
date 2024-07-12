@@ -38,7 +38,14 @@ namespace Lifty.DialogueSystem.Editor
             if (_currentGraph == null) return;
             
             ThisWindow = this;
+
+            Undo.undoRedoPerformed += DrawGraph;
             DrawGraph();
+        }
+
+        private void OnDisable()
+        {
+            Undo.undoRedoPerformed -= DrawGraph;
         }
 
         private void OnGUI()
@@ -56,6 +63,11 @@ namespace Lifty.DialogueSystem.Editor
 
         private void DrawGraph()
         {
+            if (_currentView != null)
+                rootVisualElement.Remove(_currentView);
+
+            //Debug.Log(_currentView);
+
             _serializedObject = new SerializedObject(_currentGraph);
             _currentView = new DialogueGraphView(_serializedObject, this);
             _currentView.graphViewChanged += OnChanged;

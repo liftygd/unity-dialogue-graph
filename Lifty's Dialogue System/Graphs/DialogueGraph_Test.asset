@@ -48,6 +48,8 @@ MonoBehaviour:
   - rid: 1062702444347916615
   - rid: 2858313798341623828
   - rid: 2858313798341623829
+  GraphViewPosition: {x: 122.00001, y: -230.99998, z: 0}
+  GraphViewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -130,9 +132,9 @@ MonoBehaviour:
         _guid: f16845f3-efd3-4fe5-a0d9-f53e1d7cf1dd
         _position:
           serializedVersion: 2
-          x: 422
-          y: 510
-          width: 159
+          x: 429
+          y: 497
+          width: 168
           height: 70
         TypeName: Lifty.DialogueSystem.DialogueNode_StringData, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null

@@ -14,10 +14,15 @@ namespace Lifty.DialogueSystem
         public List<DialogueGraphConnection> ConnectedPorts => _connectedPorts;
         [SerializeReference] private List<DialogueGraphConnection> _connectedPorts;
 
+        public Vector3 GraphViewPosition;
+        public Vector3 GraphViewScale;
+
         public DialogueGraphAsset()
         {
             _nodes = new List<DialogueGraphNode>();
             _connectedPorts = new List<DialogueGraphConnection>();
+
+            GraphViewScale = new Vector3(1, 1, 1);
         }
 
         public DialogueNode_Start GetStartNode()

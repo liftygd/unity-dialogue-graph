@@ -46,6 +46,11 @@ namespace Lifty.DialogueSystem.Editor
             Add(bg);
             bg.SendToBack();
 
+            LoadView();
+
+            this.RegisterCallback<MouseUpEvent>((e) => _dialogueGraph.GraphViewPosition = this.contentViewContainer.transform.position);
+            this.RegisterCallback<WheelEvent>((e) => _dialogueGraph.GraphViewScale = this.contentViewContainer.transform.scale);
+
             this.AddManipulator(new ContentDragger());
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
@@ -56,6 +61,12 @@ namespace Lifty.DialogueSystem.Editor
             DrawConnections();
 
             graphViewChanged += OnGraphViewChanged;
+        }
+
+        private void LoadView()
+        {
+            this.contentViewContainer.transform.position = _dialogueGraph.GraphViewPosition;
+            this.contentViewContainer.transform.scale = _dialogueGraph.GraphViewScale;
         }
 
         public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
