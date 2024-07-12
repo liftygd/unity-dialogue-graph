@@ -21,6 +21,7 @@ DialogueGraphView {
     font-size: 12px;
     padding-bottom: 4px;
     padding-top: 4px;
+    padding-right: 10px;
 }
 
 #out-ports {
@@ -54,11 +55,13 @@ DialogueGraphView {
     border-radius: 8px;
     border-color: #656262;
     border-width: 3px;
-}
 
-.dialogue-node {
     scale: 1;
     transition-duration: 0.1s;
+}
+
+.dialogue-node-port-field {
+    flex-direction: column;
 }
 
 .dialogue-node > #node-border {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
@@ -14,6 +15,7 @@ namespace Lifty.DialogueSystem.Editor
     {
         public DialogueGraphNode Node => _node;
         private DialogueGraphNode _node;
+        private SerializedObject _serializedNode;
 
         public Dictionary<string, Port> Ports => _ports;
         private Dictionary<string, Port> _ports;
@@ -56,7 +58,7 @@ namespace Lifty.DialogueSystem.Editor
             {
                 var nodeFlowInfo = field.GetCustomAttribute<NodeFlowAttribute>();
                 if (nodeFlowInfo == null) continue;
-                
+
                 CreateFlowPort(nodeFlowInfo, field.Name);
             }
         }
@@ -173,6 +175,7 @@ namespace Lifty.DialogueSystem.Editor
             if (field.FieldType == typeof(string))
             {
                 var valueField = new TextField();
+                valueField.AddToClassList("dialogue-node-port-field");
 
                 valueField.value = (string) field.GetValue(_node);
                 valueField.RegisterValueChangedCallback(evt =>
@@ -187,7 +190,8 @@ namespace Lifty.DialogueSystem.Editor
             if (field.FieldType == typeof(int))
             {
                 var valueField = new IntegerField();
-                
+                valueField.AddToClassList("dialogue-node-port-field");
+
                 valueField.value = (int) field.GetValue(_node);
                 valueField.RegisterValueChangedCallback(evt =>
                 {
@@ -201,7 +205,8 @@ namespace Lifty.DialogueSystem.Editor
             if (field.FieldType == typeof(bool))
             {
                 var valueField = new Toggle();
-                
+                valueField.AddToClassList("dialogue-node-port-field");
+
                 valueField.value = (bool) field.GetValue(_node);
                 valueField.RegisterValueChangedCallback(evt =>
                 {
@@ -216,6 +221,7 @@ namespace Lifty.DialogueSystem.Editor
             {
                 var valueField = new EnumField();
                 valueField.Init((DialogueLogType) field.GetValue(_node));
+                valueField.AddToClassList("dialogue-node-port-field");
 
                 valueField.value = (DialogueLogType) field.GetValue(_node);
                 valueField.RegisterValueChangedCallback(evt =>
