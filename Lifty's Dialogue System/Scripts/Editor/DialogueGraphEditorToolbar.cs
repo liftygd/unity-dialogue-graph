@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -8,29 +9,23 @@ namespace Lifty.DialogueSystem.Editor
     public class DialogueGraphEditorToolbar
     {
         private Toolbar _toolbar;
-
-        private bool _blackboardActive;
         
-        public DialogueGraphEditorToolbar(Blackboard blackboard)
+        public DialogueGraphEditorToolbar()
         {
             _toolbar = new Toolbar();
             _toolbar.AddToClassList("dialogue-graph-toolbar");
 
-            Button blackBoardButton = new Button();
-            blackBoardButton.text = "Variable Blackboard";
-            blackBoardButton.AddToClassList("dialogue-graph-toolbar-button");
-            blackBoardButton.clicked += () => ChangeBlackboardState(blackboard);
-            _toolbar.Add(blackBoardButton);
-        }
+            Button undoButton = new Button();
+            undoButton.text = "Undo";
+            undoButton.AddToClassList("dialogue-graph-toolbar-button");
+            undoButton.clicked += () => Undo.PerformUndo();
+            _toolbar.Add(undoButton);
 
-        private void ChangeBlackboardState(Blackboard blackboard)
-        {
-            _blackboardActive = !_blackboardActive;
-            
-            if (_blackboardActive)
-                blackboard.RemoveFromClassList("disable-element");
-            else
-                blackboard.AddToClassList("disable-element");
+            Button redoButton = new Button();
+            redoButton.text = "Redo";
+            redoButton.AddToClassList("dialogue-graph-toolbar-button");
+            redoButton.clicked += () => Undo.PerformRedo();
+            _toolbar.Add(redoButton);
         }
 
         public Toolbar GetToolbar()

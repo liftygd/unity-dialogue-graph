@@ -15,20 +15,22 @@ namespace Lifty.DialogueSystem.Editor
     {
         public DialogueGraphNode Node => _node;
         private DialogueGraphNode _node;
-        private SerializedObject _serializedNode;
 
         public Dictionary<string, Port> Ports => _ports;
         private Dictionary<string, Port> _ports;
 
         private Dictionary<string, VisualElement> _fields;
 
-        public DialogueGraphEditorNode(DialogueGraphNode node)
+        private DialogueGraphView _graphView;
+
+        public DialogueGraphEditorNode(DialogueGraphNode node, DialogueGraphView view)
         {
             this.AddToClassList("dialogue-node");
             this.RemoveFromClassList("graphElement");
             this.RemoveFromClassList("node");
 
             _node = node;
+            _graphView = view;
 
             Type typeInfo = node.GetType();
             NodeInfoAttribute info = typeInfo.GetCustomAttribute<NodeInfoAttribute>();

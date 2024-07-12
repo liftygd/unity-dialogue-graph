@@ -51,6 +51,11 @@ DialogueGraphView {
     display: none;
 }
 
+.dialogue-graph-toolbar {
+    height: 30px;
+    padding: 3px;
+}
+
 .dialogue-node {
     border-radius: 8px;
     border-color: #656262;

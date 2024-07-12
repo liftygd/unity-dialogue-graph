@@ -95,7 +95,7 @@ namespace Lifty.DialogueSystem.Editor
         {
             if (graphViewChange.movedElements != null)
             {
-                Undo.RecordObject(_serializedObject.targetObject, "Moved Elements In Graph");
+                RecordUndo(_serializedObject.targetObject, "Moved Elements In Graph");
                 List<DialogueGraphEditorNode> nodes = graphViewChange.movedElements.OfType<DialogueGraphEditorNode>().ToList();
 
                 foreach (var node in nodes)
@@ -106,7 +106,7 @@ namespace Lifty.DialogueSystem.Editor
             
             if (graphViewChange.elementsToRemove != null)
             {
-                Undo.RecordObject(_serializedObject.targetObject, "Removed Elements From Graph");
+                RecordUndo(_serializedObject.targetObject, "Removed Elements From Graph");
                 List<DialogueGraphEditorNode> nodes = graphViewChange.elementsToRemove.OfType<DialogueGraphEditorNode>().ToList();
 
                 if (nodes.Count > 0)
@@ -130,7 +130,7 @@ namespace Lifty.DialogueSystem.Editor
 
             if (graphViewChange.edgesToCreate != null)
             {
-                Undo.RecordObject(_serializedObject.targetObject, "Added Connections");
+                RecordUndo(_serializedObject.targetObject, "Added Connection");
                 foreach (var edge in graphViewChange.edgesToCreate)
                 {
                     CreateEdge(edge);
@@ -231,18 +231,23 @@ namespace Lifty.DialogueSystem.Editor
 
         public void Add(DialogueGraphNode node)
         {
-            Undo.RecordObject(_serializedObject.targetObject, "Added Node");
+            RecordUndo(_serializedObject.targetObject, "Added Node");
             _dialogueGraph.Nodes.Add(node);
             _serializedObject.Update();
             
             AddNodeToGraph(node);
         }
 
+        public void RecordUndo(UnityEngine.Object obj, string message)
+        {
+            Undo.RecordObject(obj, message);
+        }
+
         private void AddNodeToGraph(DialogueGraphNode node)
         {
             node.TypeName = node.GetType().AssemblyQualifiedName;
 
-            DialogueGraphEditorNode editorNode = new DialogueGraphEditorNode(node);
+            DialogueGraphEditorNode editorNode = new DialogueGraphEditorNode(node, this);
             editorNode.SetPosition(node.Position);
             
             _graphNodes.Add(editorNode);
