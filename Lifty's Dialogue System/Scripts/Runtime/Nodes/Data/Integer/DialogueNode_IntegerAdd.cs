@@ -36,7 +36,7 @@ namespace Lifty.DialogueSystem
                 _integerOne = FieldIntegerOne;
             
             if (InIntegerTwo != null && InIntegerTwo.ID != "")
-                _integerOne = GetDataFromNode<int>(InIntegerTwo, runner);
+                _integerTwo = GetDataFromNode<int>(InIntegerTwo, runner);
             else
                 _integerTwo = FieldIntegerTwo;
             

@@ -12,11 +12,12 @@ namespace Lifty.DialogueSystem
         [SerializeField] private DialogueFileData _dialogueFile;
         [SerializeField] private bool _runOnStart;
 
+        private bool _dialogueRunning;
         private Dictionary<string, DialogueTextData> _dialogueText;
 
-        [Header("UI")] 
-        [SerializeField] private float _printerDelay;
-        [SerializeField] private List<DialogueCharacterBubble> _characterBubbles;
+        [Header("UI")]
+        [SerializeField] private List<DialogueCharacterBubbleBase> _characterBubbles;
+        private DialogueCharacterBubbleBase _currentBubble;
 
         private void Start()
         {
@@ -37,8 +38,20 @@ namespace Lifty.DialogueSystem
 
         public void StartDialogue()
         {
+            if (_dialogueRunning) return;
+            
             var startNode = _dialogueGraph.GetStartNode();
             startNode.Process(this);
+            _dialogueRunning = true;
+        }
+
+        public void EndDialogue()
+        {
+            if (_currentBubble != null)
+                _currentBubble.Hide();
+
+            _currentBubble = null;
+            _dialogueRunning = false;
         }
 
         #region Variables
@@ -75,39 +88,24 @@ namespace Lifty.DialogueSystem
             if (textData == null)
                 callback?.Invoke();
             else
-                StartCoroutine(PrintTextData(textData, callback));
-        }
-
-        private IEnumerator PrintTextData(DialogueTextData textData, Action callback)
-        {
-            var currentCharacter = 0;
-            var textLength = textData.Phrase.Length;
-            var textUI = GetBubble(textData.CharacterID);
-
-            if (textUI == null)
             {
-                Debug.LogError($"DIALOGUE GRAPH: You are trying to get a character bubble that does not exist. Character ID: '{textData.CharacterID}'.");
-                callback?.Invoke();
-                yield break;
+                var textBubble = GetBubble(textData.CharacterID);
+
+                if (textBubble == null)
+                {
+                    Debug.LogError($"DIALOGUE GRAPH: You are trying to get a character bubble that does not exist. Character ID: '{textData.CharacterID}'.");
+                    callback?.Invoke();
+                    return;
+                }
+
+                if (_currentBubble != null && _currentBubble != textBubble)
+                    _currentBubble.Hide();
+
+                _currentBubble = textBubble;
+                textBubble.Show(textData, callback);
             }
-
-            var phraseText = textData.Phrase;
-            textUI.TextUI.text = "";
-            
-            while (currentCharacter < textLength)
-            {
-                currentCharacter++;
-                textUI.TextUI.text = phraseText.Substring(0, currentCharacter);
-
-                yield return new WaitForSeconds(_printerDelay);
-            }
-            
-            yield return new WaitForSeconds(textData.PhraseTime);
-
-            textUI.TextUI.text = "";
-            callback?.Invoke();
         }
-
+        
         public DialogueTextData GetTextData(string phraseID)
         {
             if (!_dialogueText.ContainsKey(phraseID)) return null;
@@ -115,7 +113,7 @@ namespace Lifty.DialogueSystem
             return _dialogueText[phraseID];
         }
 
-        public DialogueCharacterBubble GetBubble(string characterID)
+        public DialogueCharacterBubbleBase GetBubble(string characterID)
         {
             return _characterBubbles.FirstOrDefault(bubble => bubble.CharacterID == characterID);
         }

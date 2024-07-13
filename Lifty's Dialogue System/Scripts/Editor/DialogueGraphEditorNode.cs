@@ -204,6 +204,21 @@ namespace Lifty.DialogueSystem.Editor
                 return valueField;
             }
             
+            if (field.FieldType == typeof(float))
+            {
+                var valueField = new FloatField();
+                valueField.AddToClassList("dialogue-node-port-field");
+
+                valueField.value = (float) field.GetValue(_node);
+                valueField.RegisterValueChangedCallback(evt =>
+                {
+                    field.SetValue(_node, valueField.value);
+                    DialogueGraphEditorWindow.UnsavedChanges();
+                });
+
+                return valueField;
+            }
+            
             if (field.FieldType == typeof(bool))
             {
                 var valueField = new Toggle();
@@ -218,7 +233,7 @@ namespace Lifty.DialogueSystem.Editor
 
                 return valueField;
             }
-            
+
             if (field.FieldType == typeof(DialogueLogType))
             {
                 var valueField = new EnumField();
@@ -226,6 +241,22 @@ namespace Lifty.DialogueSystem.Editor
                 valueField.AddToClassList("dialogue-node-port-field");
 
                 valueField.value = (DialogueLogType) field.GetValue(_node);
+                valueField.RegisterValueChangedCallback(evt =>
+                {
+                    field.SetValue(_node, valueField.value);
+                    DialogueGraphEditorWindow.UnsavedChanges();
+                });
+
+                return valueField;
+            }
+            
+            if (field.FieldType == typeof(DialogueNode_ComparisonEnum))
+            {
+                var valueField = new EnumField();
+                valueField.Init((DialogueNode_ComparisonEnum) field.GetValue(_node));
+                valueField.AddToClassList("dialogue-node-port-field");
+
+                valueField.value = (DialogueNode_ComparisonEnum) field.GetValue(_node);
                 valueField.RegisterValueChangedCallback(evt =>
                 {
                     field.SetValue(_node, valueField.value);

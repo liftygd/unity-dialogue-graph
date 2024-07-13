@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace Lifty.DialogueSystem
 {
-    [NodeInfo("Start", "Process/Start", "dialogue-node-process")]
+    [NodeInfo("Dialogue Start", "Process/Dialogue Start", "dialogue-node-process")]
     public class DialogueNode_Start : DialogueGraphNode
     {
-        [NodeFlow("Dialogue Start", NodeFlowType.FlowOutput)]
+        [NodeFlow("Start", NodeFlowType.FlowOutput)]
         [SerializeReference] public DialogueGraphNode OutConnection = new DialogueGraphNode(true);
 
         public override void Process(DialogueGraphRunner runner)

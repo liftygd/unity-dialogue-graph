@@ -23,11 +23,4 @@ namespace Lifty.DialogueSystem
         public DialogueLanguageEnum Language;
         public TextAsset DialogueTextFile;
     }
-
-    [Serializable]
-    public class DialogueCharacterBubble
-    {
-        public string CharacterID;
-        public TMP_Text TextUI;
-    }
 }

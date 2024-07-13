@@ -22,13 +22,13 @@ MonoBehaviour:
   - rid: 1062702345502851298
   - rid: 1062702345502851303
   - rid: 1062702345502851309
-  - rid: 1062702373082234978
   - rid: 1062702373082234983
   - rid: 1062702373082234990
   - rid: 1062702444347916588
   - rid: 1062702444347916593
   - rid: 1062702444347916598
-  - rid: 1062702444347916610
+  - rid: 1062702482551996512
+  - rid: 1062702482551996515
   _connectedPorts:
   - rid: 1062702354878693454
   - rid: 1062702354878693455
@@ -38,18 +38,16 @@ MonoBehaviour:
   - rid: 1062702354878693459
   - rid: 1062702354878693460
   - rid: 1062702354878693461
-  - rid: 1062702373082234989
   - rid: 1062702373082234993
   - rid: 1062702373082235008
-  - rid: 1062702444347916592
-  - rid: 1062702444347916597
-  - rid: 1062702444347916602
-  - rid: 1062702444347916614
-  - rid: 1062702444347916615
-  - rid: 2858313798341623828
-  - rid: 2858313798341623829
-  GraphViewPosition: {x: -116, y: -208.35997, z: 0}
-  GraphViewScale: {x: 0.8695652, y: 0.8695652, z: 1}
+  - rid: 1062702482551996416
+  - rid: 1062702482551996417
+  - rid: 1062702482551996418
+  - rid: 1062702482551996514
+  - rid: 1062702482551996517
+  - rid: 1062702484115423442
+  GraphViewPosition: {x: 311, y: -664, z: 0}
+  GraphViewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -61,9 +59,9 @@ MonoBehaviour:
         _guid: 5b0115d9-032d-4f88-8e6b-2cecfca4a0f8
         _position:
           serializedVersion: 2
-          x: -142
+          x: -158
           y: 567
-          width: 123
+          width: 103
           height: 70
         TypeName: Lifty.DialogueSystem.DialogueNode_Start, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
@@ -191,10 +189,10 @@ MonoBehaviour:
         _guid: 5475e714-9007-4caa-848c-477d5663509e
         _position:
           serializedVersion: 2
-          x: 1597
+          x: 1628
           y: 361
-          width: 119
-          height: 94
+          width: 154
+          height: 118
         TypeName: Lifty.DialogueSystem.DialogueNode_Log, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         InConnection:
@@ -206,18 +204,7 @@ MonoBehaviour:
           rid: 1062702345502851303
         FieldLogString: Debug Log Node
         OutConnection:
-          rid: 1062702345502851297
-    - rid: 1062702345502851297
-      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 
-        _position:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        TypeName: 
+          rid: 1062702482551996515
     - rid: 1062702345502851298
       type: {class: DialogueNode_GetStringVariable, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
@@ -272,9 +259,9 @@ MonoBehaviour:
         _guid: b6dc287b-9c4b-40c0-97b2-51997c796cb2
         _position:
           serializedVersion: 2
-          x: 341
+          x: 339
           y: 361
-          width: 185
+          width: 186
           height: 118
         TypeName: Lifty.DialogueSystem.DialogueNode_Log, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
@@ -328,26 +315,6 @@ MonoBehaviour:
       data:
         _outPortID: 491bef49-45c2-44d7-a20a-f5b852065e31_OutVariableValue
         _inPortID: cafa9963-cbd3-4656-a38f-a6de31e5cecc_InStringOne
-    - rid: 1062702373082234978
-      type: {class: DialogueNode_RandomExit3, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: dff71f61-30db-499c-b861-76a36ed5223b
-        _position:
-          serializedVersion: 2
-          x: 339
-          y: 801
-          width: 119
-          height: 118
-        TypeName: Lifty.DialogueSystem.DialogueNode_RandomExit3, DialogueGraph, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        InConnection:
-          rid: 1062702373082234983
-        OutConnection1:
-          rid: 1062702444347916588
-        OutConnection2:
-          rid: 1062702444347916593
-        OutConnection3:
-          rid: 1062702444347916598
     - rid: 1062702373082234983
       type: {class: DialogueNode_Condition, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
@@ -368,21 +335,16 @@ MonoBehaviour:
         OutConnectionTrue:
           rid: 1062702345502851309
         OutConnectionFalse:
-          rid: 1062702373082234978
-    - rid: 1062702373082234989
-      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _outPortID: 5b0115d9-032d-4f88-8e6b-2cecfca4a0f8_OutConnection
-        _inPortID: 68675da7-e281-435b-9599-2b545c8cef1b_InConnection
+          rid: 1062702444347916588
     - rid: 1062702373082234990
       type: {class: DialogueNode_BooleanData, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
         _guid: d11ff09c-14e8-4d24-8987-064bd35d95b7
         _position:
           serializedVersion: 2
-          x: -45
-          y: 685
-          width: 95
+          x: -34
+          y: 676
+          width: 105
           height: 70
         TypeName: Lifty.DialogueSystem.DialogueNode_BooleanData, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
@@ -418,19 +380,19 @@ MonoBehaviour:
         _guid: 24173332-fe0f-4cab-92bb-b23d7112a8ea
         _position:
           serializedVersion: 2
-          x: 540
-          y: 707
-          width: 214
+          x: 345
+          y: 770
+          width: 219
           height: 94
         TypeName: Lifty.DialogueSystem.DialogueNode_ShowPhrase, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         InConnection:
-          rid: 1062702373082234978
+          rid: 1062702373082234983
         InPhraseID:
           rid: 1062702444347916590
         FieldPhraseID: Phrase_1
         OutConnection:
-          rid: 1062702444347916610
+          rid: 1062702444347916593
     - rid: 1062702444347916590
       type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
@@ -442,30 +404,25 @@ MonoBehaviour:
           width: 0
           height: 0
         TypeName: 
-    - rid: 1062702444347916592
-      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _outPortID: dff71f61-30db-499c-b861-76a36ed5223b_OutConnection1
-        _inPortID: 24173332-fe0f-4cab-92bb-b23d7112a8ea_InConnection
     - rid: 1062702444347916593
       type: {class: DialogueNode_ShowPhrase, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
         _guid: bab2486e-9f90-4d2f-a561-45bbb4b0f13f
         _position:
           serializedVersion: 2
-          x: 540
-          y: 825
-          width: 214
+          x: 592
+          y: 770
+          width: 222
           height: 94
         TypeName: Lifty.DialogueSystem.DialogueNode_ShowPhrase, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         InConnection:
-          rid: 1062702373082234978
+          rid: 1062702444347916588
         InPhraseID:
           rid: 1062702444347916595
         FieldPhraseID: Phrase_2
         OutConnection:
-          rid: 1062702444347916610
+          rid: 1062702444347916598
     - rid: 1062702444347916595
       type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
@@ -477,30 +434,25 @@ MonoBehaviour:
           width: 0
           height: 0
         TypeName: 
-    - rid: 1062702444347916597
-      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _outPortID: dff71f61-30db-499c-b861-76a36ed5223b_OutConnection2
-        _inPortID: bab2486e-9f90-4d2f-a561-45bbb4b0f13f_InConnection
     - rid: 1062702444347916598
       type: {class: DialogueNode_ShowPhrase, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
         _guid: f68e1ac2-17dd-4173-81b3-d749f903efdb
         _position:
           serializedVersion: 2
-          x: 540
-          y: 941
-          width: 214
+          x: 832
+          y: 770
+          width: 222
           height: 94
         TypeName: Lifty.DialogueSystem.DialogueNode_ShowPhrase, DialogueGraph, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         InConnection:
-          rid: 1062702373082234978
+          rid: 1062702444347916593
         InPhraseID:
           rid: 1062702444347916600
         FieldPhraseID: Phrase_3
         OutConnection:
-          rid: 1062702444347916610
+          rid: 1062702482551996512
     - rid: 1062702444347916600
       type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
@@ -512,65 +464,6 @@ MonoBehaviour:
           width: 0
           height: 0
         TypeName: 
-    - rid: 1062702444347916602
-      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _outPortID: dff71f61-30db-499c-b861-76a36ed5223b_OutConnection3
-        _inPortID: f68e1ac2-17dd-4173-81b3-d749f903efdb_InConnection
-    - rid: 1062702444347916610
-      type: {class: DialogueNode_Log, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 800224ea-9601-481c-b6f9-1953131af998
-        _position:
-          serializedVersion: 2
-          x: 869
-          y: 825
-          width: 210
-          height: 94
-        TypeName: Lifty.DialogueSystem.DialogueNode_Log, DialogueGraph, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-        InConnection:
-          rid: 1062702444347916598
-        InLogType:
-          rid: 1062702444347916658
-        FieldLogType: 0
-        InLogString:
-          rid: 1062702444347916612
-        FieldLogString: Shown Phrase
-        OutConnection:
-          rid: 1062702444347916613
-    - rid: 1062702444347916612
-      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 
-        _position:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        TypeName: 
-    - rid: 1062702444347916613
-      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 
-        _position:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        TypeName: 
-    - rid: 1062702444347916614
-      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _outPortID: 24173332-fe0f-4cab-92bb-b23d7112a8ea_OutConnection
-        _inPortID: 800224ea-9601-481c-b6f9-1953131af998_InConnection
-    - rid: 1062702444347916615
-      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _outPortID: bab2486e-9f90-4d2f-a561-45bbb4b0f13f_OutConnection
-        _inPortID: 800224ea-9601-481c-b6f9-1953131af998_InConnection
     - rid: 1062702444347916655
       type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
@@ -604,24 +497,61 @@ MonoBehaviour:
           width: 0
           height: 0
         TypeName: 
-    - rid: 1062702444347916658
-      type: {class: DialogueGraphNode, ns: Lifty.DialogueSystem, asm: DialogueGraph}
-      data:
-        _guid: 
-        _position:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        TypeName: 
-    - rid: 2858313798341623828
+    - rid: 1062702482551996416
       type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
         _outPortID: 68675da7-e281-435b-9599-2b545c8cef1b_OutConnectionFalse
-        _inPortID: dff71f61-30db-499c-b861-76a36ed5223b_InConnection
-    - rid: 2858313798341623829
+        _inPortID: 24173332-fe0f-4cab-92bb-b23d7112a8ea_InConnection
+    - rid: 1062702482551996417
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: 24173332-fe0f-4cab-92bb-b23d7112a8ea_OutConnection
+        _inPortID: bab2486e-9f90-4d2f-a561-45bbb4b0f13f_InConnection
+    - rid: 1062702482551996418
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: bab2486e-9f90-4d2f-a561-45bbb4b0f13f_OutConnection
+        _inPortID: f68e1ac2-17dd-4173-81b3-d749f903efdb_InConnection
+    - rid: 1062702482551996512
+      type: {class: DialogueNode_End, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: ef73f721-39c2-405a-98db-05fe35fafc74
+        _position:
+          serializedVersion: 2
+          x: 1097
+          y: 770
+          width: 97
+          height: 70
+        TypeName: Lifty.DialogueSystem.DialogueNode_End, DialogueGraph, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        InConnection:
+          rid: 1062702444347916598
+    - rid: 1062702482551996514
       type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
       data:
         _outPortID: f68e1ac2-17dd-4173-81b3-d749f903efdb_OutConnection
-        _inPortID: 800224ea-9601-481c-b6f9-1953131af998_InConnection
+        _inPortID: ef73f721-39c2-405a-98db-05fe35fafc74_InConnection
+    - rid: 1062702482551996515
+      type: {class: DialogueNode_End, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _guid: 9c44860d-04c6-4957-9ca1-d94ce8d307e5
+        _position:
+          serializedVersion: 2
+          x: 1843
+          y: 361
+          width: 97
+          height: 70
+        TypeName: Lifty.DialogueSystem.DialogueNode_End, DialogueGraph, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        InConnection:
+          rid: 1062702345502851294
+    - rid: 1062702482551996517
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: 5475e714-9007-4caa-848c-477d5663509e_OutConnection
+        _inPortID: 9c44860d-04c6-4957-9ca1-d94ce8d307e5_InConnection
+    - rid: 1062702484115423442
+      type: {class: DialogueGraphConnection, ns: Lifty.DialogueSystem, asm: DialogueGraph}
+      data:
+        _outPortID: 5b0115d9-032d-4f88-8e6b-2cecfca4a0f8_OutConnection
+        _inPortID: 68675da7-e281-435b-9599-2b545c8cef1b_InConnection

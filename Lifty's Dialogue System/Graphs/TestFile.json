@@ -2,22 +2,22 @@
     "Items": [
         {
             "PhraseID": "Phrase_1",
-            "Phrase": "Test 1",
-            "CharacterID": "Test_Character",
+            "Phrase": "Test 1 Character 1",
+            "CharacterID": "Test_Character_1",
             "CharacterName": "",
             "PhraseTime": 1
         },
         {
             "PhraseID": "Phrase_2",
-            "Phrase": "Test 2",
-            "CharacterID": "Test_Character",
+            "Phrase": "Test 2 Character 2",
+            "CharacterID": "Test_Character_2",
             "CharacterName": "",
             "PhraseTime": 1
         },
         {
             "PhraseID": "Phrase_3",
-            "Phrase": "Test 3",
-            "CharacterID": "Test_Character",
+            "Phrase": "Test 3 Character 1",
+            "CharacterID": "Test_Character_1",
             "CharacterName": "",
             "PhraseTime": 1
         }

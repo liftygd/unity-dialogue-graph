@@ -41,6 +41,10 @@ DialogueGraphView {
 
 #NodeTitle > #title-label {
     margin: 6px;
+
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 6px;
 }
 
 .invisible-connector > #connector, .invisible-connector > .connectorText {
@@ -91,8 +95,13 @@ DialogueGraphView {
     height: 32px;
 }
 
+
 .dialogue-node-process {
     background-color: #585b4f;
+}
+
+.dialogue-node-process > #title-label {
+    background-color: #3e4138;
 }
 
 .process {
@@ -103,8 +112,13 @@ DialogueGraphView {
     border-color: #7f8675;
 }
 
+
 .dialogue-node-debug {
     background-color: #6c4c2a;
+}
+
+.dialogue-node-debug > #title-label {
+    background-color: #543b21;
 }
 
 .debug {
@@ -115,8 +129,13 @@ DialogueGraphView {
     border-color: #a64b4b;
 }
 
+
 .dialogue-node-data-string {
     background-color: #315168;
+}
+
+.dialogue-node-data-string > #title-label {
+    background-color: #253d4d;
 }
 
 .string {
@@ -127,8 +146,13 @@ DialogueGraphView {
     border-color: #4f7ea4;
 }
 
+
 .dialogue-node-data-integer {
     background-color: #2D5C42;
+}
+
+.dialogue-node-data-integer > #title-label {
+    background-color: #224634;
 }
 
 .integer {
@@ -139,8 +163,13 @@ DialogueGraphView {
     border-color: #468d61;
 }
 
+
 .dialogue-node-data-boolean {
     background-color: #5e2929;
+}
+
+.dialogue-node-data-boolean > #title-label {
+    background-color: #481f1f;
 }
 
 .boolean {
@@ -151,8 +180,13 @@ DialogueGraphView {
     border-color: #a64b4b;
 }
 
+
 .dialogue-node-branch {
     background-color: #5c2d4f;
+}
+
+.dialogue-node-branch > #title-label {
+    background-color: #46223d;
 }
 
 .branching {
@@ -161,4 +195,21 @@ DialogueGraphView {
 
 .branching:hover, .branching:selected {
     border-color: #944c7d;
+}
+
+
+.dialogue-node-data-float {
+    background-color: #6c622e;
+}
+
+.dialogue-node-data-float > #title-label {
+    background-color: #4f4922;
+}
+
+.float {
+    border-color: #6c622e;
+}
+
+.float:hover, .float:selected {
+    border-color: #b6a54e;
 }

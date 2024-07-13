@@ -46,6 +46,10 @@ namespace Lifty.DialogueSystem.Editor
             Add(bg);
             bg.SendToBack();
 
+            this.serializeGraphElements += CutCopyOperation;
+            this.unserializeAndPaste += PasteOperation;
+            this.canPasteSerializedData += CanPaste;
+            
             LoadView();
 
             this.RegisterCallback<MouseUpEvent>((e) => _dialogueGraph.GraphViewPosition = this.contentViewContainer.transform.position);
@@ -61,6 +65,21 @@ namespace Lifty.DialogueSystem.Editor
             DrawConnections();
 
             graphViewChanged += OnGraphViewChanged;
+        }
+
+        private bool CanPaste(string data)
+        {
+            return true;
+        }
+
+        private void PasteOperation(string operationName, string data)
+        {
+            
+        }
+
+        private string CutCopyOperation(IEnumerable<GraphElement> elements)
+        {
+            return "";
         }
 
         private void LoadView()
@@ -174,6 +193,27 @@ namespace Lifty.DialogueSystem.Editor
             
             _dialogueGraph.RemoveConnection(edge.output.name);
         }
+        
+        public void Add(DialogueGraphNode node)
+        {
+            RecordUndo(_serializedObject.targetObject, "Added Node");
+            _dialogueGraph.Nodes.Add(node);
+            _serializedObject.Update();
+            
+            AddNodeToGraph(node);
+        }
+
+        private void AddNodeToGraph(DialogueGraphNode node)
+        {
+            node.TypeName = node.GetType().AssemblyQualifiedName;
+
+            DialogueGraphEditorNode editorNode = new DialogueGraphEditorNode(node, this);
+            editorNode.SetPosition(node.Position);
+            
+            _graphNodes.Add(editorNode);
+            _nodeDictionary.Add(node.ID, editorNode);
+            AddElement(editorNode);
+        }
 
         private void RemoveNode(DialogueGraphEditorNode node)
         {
@@ -229,30 +269,9 @@ namespace Lifty.DialogueSystem.Editor
             SearchWindow.Open(new SearchWindowContext(obj.screenMousePosition), _searchProvider);
         }
 
-        public void Add(DialogueGraphNode node)
-        {
-            RecordUndo(_serializedObject.targetObject, "Added Node");
-            _dialogueGraph.Nodes.Add(node);
-            _serializedObject.Update();
-            
-            AddNodeToGraph(node);
-        }
-
         public void RecordUndo(UnityEngine.Object obj, string message)
         {
             Undo.RecordObject(obj, message);
-        }
-
-        private void AddNodeToGraph(DialogueGraphNode node)
-        {
-            node.TypeName = node.GetType().AssemblyQualifiedName;
-
-            DialogueGraphEditorNode editorNode = new DialogueGraphEditorNode(node, this);
-            editorNode.SetPosition(node.Position);
-            
-            _graphNodes.Add(editorNode);
-            _nodeDictionary.Add(node.ID, editorNode);
-            AddElement(editorNode);
         }
     }
 }
