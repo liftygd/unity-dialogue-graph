@@ -14,8 +14,8 @@ namespace Lifty.DialogueSystem
         public List<DialogueGraphConnection> ConnectedPorts => _connectedPorts;
         [SerializeReference] private List<DialogueGraphConnection> _connectedPorts;
 
-        public Vector3 GraphViewPosition;
-        public Vector3 GraphViewScale;
+        [SerializeReference] public Vector3 GraphViewPosition;
+        [SerializeReference] public Vector3 GraphViewScale;
 
         public DialogueGraphAsset()
         {
