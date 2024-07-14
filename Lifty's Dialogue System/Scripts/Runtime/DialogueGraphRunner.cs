@@ -22,27 +22,30 @@ namespace Lifty.DialogueSystem
         private void Start()
         {
             LoadFile();
+            DialogueGraphController.Instance.DialogueLanguageChanged += LoadFile;
 
             if (_runOnStart) StartDialogue();
         }
 
-        private void OnEnable()
-        {
-            DialogueGraphController.Instance.DialogueLanguageChanged += LoadFile;
-        }
-
-        private void OnDisable()
+        private void OnDestroy()
         {
             DialogueGraphController.Instance.DialogueLanguageChanged -= LoadFile;
         }
+
+        #region Dialogue
 
         public void StartDialogue()
         {
             if (_dialogueRunning) return;
             
-            var startNode = _dialogueGraph.GetStartNode();
-            startNode.Process(this);
             _dialogueRunning = true;
+            var startNode = GetStartNode();
+            startNode.Process(this);
+        }
+
+        public DialogueNode_Start GetStartNode()
+        {
+            return _dialogueGraph.GetStartNode();
         }
 
         public void EndDialogue()
@@ -53,6 +56,20 @@ namespace Lifty.DialogueSystem
             _currentBubble = null;
             _dialogueRunning = false;
         }
+
+        public void DelayCallback(float time, Action callback)
+        {
+            StartCoroutine(Delay(time, callback));
+        }
+
+        private IEnumerator Delay(float time, Action callback)
+        {
+            yield return new WaitForSeconds(time);
+            
+            callback?.Invoke();
+        }
+
+        #endregion
 
         #region Variables
 
