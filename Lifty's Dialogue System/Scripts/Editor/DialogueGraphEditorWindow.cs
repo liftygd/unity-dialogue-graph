@@ -36,8 +36,6 @@ namespace Lifty.DialogueSystem.Editor
         private void OnEnable()
         {
             if (_currentGraph == null) return;
-            
-            ThisWindow = this;
 
             Undo.undoRedoPerformed += DrawGraph;
             DrawGraph();
@@ -50,6 +48,7 @@ namespace Lifty.DialogueSystem.Editor
 
         private void OnGUI()
         {
+            ThisWindow = this;
             if (_currentGraph == null) return;
             
             hasUnsavedChanges = EditorUtility.IsDirty(_currentGraph);
