@@ -19,8 +19,6 @@ namespace Lifty.DialogueSystem
         [NodeFlow("Out", NodeFlowType.FlowOutput)]
         [SerializeReference] public DialogueGraphNode OutConnection = new DialogueGraphNode(true);
 
-        private DialogueTextData _dialogueTextData;
-        
         public DialogueNode_ShowPhrase() : base()
         {
             FieldPhraseID = "Phrase ID";

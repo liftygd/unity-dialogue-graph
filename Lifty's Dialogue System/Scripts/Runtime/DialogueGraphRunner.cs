@@ -19,6 +19,9 @@ namespace Lifty.DialogueSystem
         [SerializeField] private List<DialogueCharacterBubbleBase> _characterBubbles;
         private DialogueCharacterBubbleBase _currentBubble;
 
+        [Header("Events")] 
+        [SerializeField] private List<DialogueGraphEvent> _events;
+
         private void Start()
         {
             LoadFile();
@@ -67,6 +70,19 @@ namespace Lifty.DialogueSystem
             yield return new WaitForSeconds(time);
             
             callback?.Invoke();
+        }
+
+        public void CallEvent(string eventID)
+        {
+            var foundEvent = _events.First(e => e.EventID == eventID);
+
+            if (foundEvent == null)
+            {
+                Debug.LogError("DIALOGUE GRAPH: Trying to call event by ID, but it does not exist.");
+                return;
+            }
+            
+            foundEvent.CallEvent();
         }
 
         #endregion

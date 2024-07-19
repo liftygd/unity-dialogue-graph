@@ -13,6 +13,11 @@ namespace Lifty.DialogueSystem
         [SerializeField] protected TMP_Text textUI;
         [SerializeField] protected float _printerDelay;
 
+        private void Start()
+        {
+            textUI.text = "";
+        }
+
         public virtual void Show(DialogueTextData textData, Action callback)
         {
             StartCoroutine(PrintTextData(textData, callback));

@@ -7,9 +7,9 @@ namespace Lifty.DialogueSystem
     public class DialogueCharacterBubble_Animated : DialogueCharacterBubbleBase
     {
         [Header("Animation")] 
-        [SerializeField] private Animator _anim;
-        [SerializeField] private float _appearAnimationTime;
-        private bool _active;
+        [SerializeField] protected Animator _anim;
+        [SerializeField] protected float _appearAnimationTime;
+        protected bool _active;
 
         private void Start()
         {
