@@ -2,7 +2,7 @@
 
 namespace Lifty.DialogueSystem
 {
-    [NodeInfo("Delay", "Process/Delay", "dialogue-node-process")]
+    [NodeInfo("Delay", "Command/Delay", "dialogue-node-command")]
     public class DialogueNode_Delay : DialogueGraphNode
     {
         [NodeFlow("In", NodeFlowType.FlowInput)]

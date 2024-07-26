@@ -11,6 +11,8 @@ namespace Lifty.DialogueSystem
         public string CharacterName;
         public int PhraseTime;
 
+        public string BlockID;
+
         public DialogueTextData(string phraseID = "", string phrase = "", string characterID = "", string characterName = "", int phraseTime = 1)
         {
             PhraseID = phraseID;
@@ -18,6 +20,7 @@ namespace Lifty.DialogueSystem
             CharacterID = characterID;
             CharacterName = characterName;
             PhraseTime = phraseTime;
+            BlockID = "";
         }
     }
 }

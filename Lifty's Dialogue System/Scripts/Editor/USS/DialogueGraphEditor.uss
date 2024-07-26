@@ -213,3 +213,20 @@ DialogueGraphView {
 .float:hover, .float:selected {
     border-color: #b6a54e;
 }
+
+
+.dialogue-node-command {
+    background-color: #6c412e;
+}
+
+.dialogue-node-command > #title-label {
+    background-color: #543324;
+}
+
+.command {
+    border-color: #6c412e;
+}
+
+.command:hover, .command:selected {
+    border-color: #b06b4d;
+}

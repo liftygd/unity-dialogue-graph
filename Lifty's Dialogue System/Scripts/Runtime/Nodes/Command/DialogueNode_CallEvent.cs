@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Lifty.DialogueSystem
 {
-    [NodeInfo("Call Event", "Process/Call Event", "dialogue-node-process")]
+    [NodeInfo("Call Event", "Command/Call Event", "dialogue-node-command")]
     public class DialogueNode_CallEvent : DialogueGraphNode
     {
         [NodeFlow("In", NodeFlowType.FlowInput)]

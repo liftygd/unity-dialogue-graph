@@ -53,11 +53,16 @@ namespace Lifty.DialogueSystem
 
         public void EndDialogue()
         {
-            if (_currentBubble != null)
-                _currentBubble.Hide();
+            HideBubble();
 
             _currentBubble = null;
             _dialogueRunning = false;
+        }
+
+        public void HideBubble()
+        {
+            if (_currentBubble != null)
+                _currentBubble.Hide();
         }
 
         public void DelayCallback(float time, Action callback)
@@ -91,7 +96,7 @@ namespace Lifty.DialogueSystem
 
         public T GetVariableValue<T>(string variableName)
         {
-            return (T) DialogueGraphController.Instance.GetVariableValue<T>(variableName);
+            return DialogueGraphController.Instance.GetVariableValue<T>(variableName);
         }
 
         public void SetVariableValue<T>(string variableName, T variableValue)
@@ -144,6 +149,22 @@ namespace Lifty.DialogueSystem
             if (!_dialogueText.ContainsKey(phraseID)) return null;
 
             return _dialogueText[phraseID];
+        }
+
+        public List<string> GetTextBlock(string blockID)
+        {
+            var textBlock = new List<string>();
+
+            foreach (var element in _dialogueText)
+            {
+                var textData = element.Value;
+                if (string.IsNullOrEmpty(textData.BlockID)) continue;
+                if (textData.BlockID != blockID) continue;
+                
+                textBlock.Add(textData.PhraseID);
+            }
+
+            return textBlock;
         }
 
         public DialogueCharacterBubbleBase GetBubble(string characterID)

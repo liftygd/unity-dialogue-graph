@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Lifty.DialogueSystem
 {
-    [NodeInfo("Repeat From Start", "Process/Repeat From Start", "dialogue-node-process")]
+    [NodeInfo("Repeat From Start", "Command/Repeat From Start", "dialogue-node-command")]
     public class DialogueNode_RepeatFromStart : DialogueGraphNode
     {
         [NodeFlow("Repeat", NodeFlowType.FlowInput)]
@@ -11,6 +11,7 @@ namespace Lifty.DialogueSystem
         public override void Process(DialogueGraphRunner runner)
         {
             base.Process(runner);
+            
             runner.GetStartNode().Process(runner);
         }
     }

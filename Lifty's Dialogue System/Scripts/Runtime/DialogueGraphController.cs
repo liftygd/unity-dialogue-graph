@@ -18,9 +18,10 @@ namespace Lifty.DialogueSystem
         
         private Dictionary<string, object> _variables;
 
-        public object GetVariableValue<T>(string variableName)
+        public T GetVariableValue<T>(string variableName)
         {
-            if (!_variables.ContainsKey(variableName)) return null;
+            if (!_variables.ContainsKey(variableName))
+                SetVariableValue(variableName, default(T));
             
             var variable = (DialogueGraphVariable<T>) _variables[variableName];
             return variable.GetValue();
