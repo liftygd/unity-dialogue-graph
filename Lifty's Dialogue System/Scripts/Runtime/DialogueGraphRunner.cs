@@ -26,6 +26,7 @@ namespace Lifty.DialogueSystem
         {
             LoadFile();
             DialogueGraphController.Instance.DialogueLanguageChanged += LoadFile;
+            _dialogueGraph.Nodes.ForEach(node => node.Configurate());
 
             if (_runOnStart) StartDialogue();
         }

@@ -28,6 +28,11 @@ namespace Lifty.DialogueSystem
             FieldRepeat = true;
         }
 
+        public override void Configurate()
+        {
+            _currentExit = 0;
+        }
+
         public override void Process(DialogueGraphRunner runner)
         {
             base.Process(runner);

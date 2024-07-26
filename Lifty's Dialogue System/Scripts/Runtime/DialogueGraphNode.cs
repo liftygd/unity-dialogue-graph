@@ -33,6 +33,11 @@ namespace Lifty.DialogueSystem
             _position = position;
         }
 
+        public virtual void Configurate()
+        {
+            
+        }
+
         public virtual void Process(DialogueGraphRunner runner)
         {
             _runner = runner;
