@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Lifty.DialogueSystem
 {
@@ -11,7 +12,7 @@ namespace Lifty.DialogueSystem
         [NodeFlow("Delay Time", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.FloatPort))]
         [SerializeReference] public DialogueGraphNode InDelayTime = new DialogueGraphNode(true);
         
-        [NodeFlowField("Delay Time")] 
+        [NodeFlowField("Delay Time", typeof(FloatField))] 
         public float FieldDelayTime;
         private float _delayTime;
         

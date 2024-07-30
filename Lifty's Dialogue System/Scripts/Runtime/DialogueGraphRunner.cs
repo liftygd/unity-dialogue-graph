@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 
 namespace Lifty.DialogueSystem
@@ -25,6 +26,8 @@ namespace Lifty.DialogueSystem
         private void Start()
         {
             LoadFile();
+            if (_dialogueGraph == null) return;
+            
             DialogueGraphController.Instance.DialogueLanguageChanged += LoadFile;
             _dialogueGraph.Nodes.ForEach(node => node.Configurate());
 
@@ -111,6 +114,8 @@ namespace Lifty.DialogueSystem
         
         private void LoadFile()
         {
+            if (_dialogueFile == null) return;
+            
             _dialogueText = new Dictionary<string, DialogueTextData>();
             var textFile = _dialogueFile.GetFileByLanguage(DialogueGraphController.Instance.CurrentDialogueLanguage);
             
@@ -124,6 +129,28 @@ namespace Lifty.DialogueSystem
         public void ShowTextData(string phraseID, Action callback)
         {
             var textData = GetTextData(phraseID);
+            ShowText(textData, callback);
+        }
+
+        public void ShowTextData(DialogueTextData textData, Action callback)
+        {
+            ShowText(textData, callback);
+        }
+
+        public void ShowTextData(string phraseID, Action callback, DialogueGraphVariable<object>[] variablesToReplace)
+        {
+            var textData = new DialogueTextData(GetTextData(phraseID));
+
+            foreach (var variable in variablesToReplace)
+            {
+                textData.Phrase = textData.Phrase.Replace(variable.VariableName, variable.GetValue().ToString());
+            }
+            
+            ShowText(textData, callback);
+        }
+
+        private void ShowText(DialogueTextData textData, Action callback)
+        {
             if (textData == null)
                 callback?.Invoke();
             else

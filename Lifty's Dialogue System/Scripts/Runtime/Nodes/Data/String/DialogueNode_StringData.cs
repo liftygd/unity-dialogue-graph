@@ -9,7 +9,7 @@ namespace Lifty.DialogueSystem
         [NodeFlow("", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.EmptyPort))]
         [SerializeReference] public DialogueGraphNode InString = new DialogueGraphNode(true);
 
-        [NodeFlowField("")] 
+        [NodeFlowField("", typeof(TextField))] 
         public string FieldString;
         
         [NodeFlow("Out", NodeFlowType.FlowOutput, typeof(DialogueGraphPortTypes.StringPort))]

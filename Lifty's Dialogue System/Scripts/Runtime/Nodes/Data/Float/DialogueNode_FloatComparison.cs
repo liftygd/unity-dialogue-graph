@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Lifty.DialogueSystem
 {
@@ -8,20 +9,20 @@ namespace Lifty.DialogueSystem
         [NodeFlow("Float 1", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.FloatPort))]
         [SerializeReference] public DialogueGraphNode InFloatOne = new DialogueGraphNode(true);
         
-        [NodeFlowField("Float 1")] 
+        [NodeFlowField("Float 1", typeof(FloatField))] 
         public float FieldFloatOne;
         private float _floatOne;
         
         [NodeFlow("Comparison", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.EmptyPort))]
         [SerializeReference] public DialogueGraphNode InComparison = new DialogueGraphNode(true);
         
-        [NodeFlowField("Comparison")] 
+        [NodeFlowField("Comparison", typeof(EnumField))] 
         public DialogueNode_ComparisonEnum FieldComparison;
 
         [NodeFlow("Float 2", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.FloatPort))]
         [SerializeReference] public DialogueGraphNode InFloatTwo = new DialogueGraphNode(true);
         
-        [NodeFlowField("Float 2")] 
+        [NodeFlowField("Float 2", typeof(FloatField))] 
         public float FieldFloatTwo;
         private float _floatTwo;
         

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
@@ -163,7 +164,7 @@ namespace Lifty.DialogueSystem.Editor
                 if (nodeFlowFieldInfo == null) continue;
                 if (nodeFlowFieldInfo.PortName != flowInfo.PortName) continue;
 
-                var valueField = GetFieldByType(field);
+                var valueField = GetFieldByType(field, nodeFlowFieldInfo);
                 
                 _fields.Add(flowInfo.PortName, valueField);
                 return valueField;
@@ -172,101 +173,60 @@ namespace Lifty.DialogueSystem.Editor
             return null;
         }
 
-        private VisualElement GetFieldByType(FieldInfo field)
+        private VisualElement GetFieldByType(FieldInfo field, NodeFlowFieldAttribute flowField)
         {
-            if (field.FieldType == typeof(string))
-            {
-                var valueField = new TextField();
-                valueField.AddToClassList("dialogue-node-port-field");
-
-                valueField.value = (string) field.GetValue(_node);
-                valueField.RegisterValueChangedCallback(evt =>
-                {
-                    field.SetValue(_node, valueField.value);
-                    DialogueGraphEditorWindow.UnsavedChanges();
-                });
-
-                return valueField;
-            }
+            //Create field
+            var fieldType = flowField.FieldType;
+            var visualField = Activator.CreateInstance(fieldType);
+            ((VisualElement) visualField).AddToClassList("dialogue-node-port-field");
             
-            if (field.FieldType == typeof(int))
+            //Initialize field (for enums)
+            var visualFieldEnum = fieldType.GetMethod("Init", new [] { typeof(Enum) });
+            if (visualFieldEnum != null)
+                visualFieldEnum.Invoke(visualField, new object[] { field.GetValue(_node) });
+
+            //Get field value from node
+            var visualFieldValue = fieldType.GetProperty("value");
+            visualFieldValue?.SetValue(visualField, field.GetValue(_node));
+
+            //Get callback field
+            MethodInfo visualFieldCallback = null;
+            var methods = fieldType.GetMethods();
+            foreach (var method in methods)
             {
-                var valueField = new IntegerField();
-                valueField.AddToClassList("dialogue-node-port-field");
+                if (method.Name != "RegisterCallback") continue;
+                if (method.GetParameters().Length > 2) continue;
 
-                valueField.value = (int) field.GetValue(_node);
-                valueField.RegisterValueChangedCallback(evt =>
-                {
-                    field.SetValue(_node, valueField.value);
-                    DialogueGraphEditorWindow.UnsavedChanges();
-                });
-
-                return valueField;
-            }
-            
-            if (field.FieldType == typeof(float))
-            {
-                var valueField = new FloatField();
-                valueField.AddToClassList("dialogue-node-port-field");
-
-                valueField.value = (float) field.GetValue(_node);
-                valueField.RegisterValueChangedCallback(evt =>
-                {
-                    field.SetValue(_node, valueField.value);
-                    DialogueGraphEditorWindow.UnsavedChanges();
-                });
-
-                return valueField;
-            }
-            
-            if (field.FieldType == typeof(bool))
-            {
-                var valueField = new Toggle();
-                valueField.AddToClassList("dialogue-node-port-field");
-
-                valueField.value = (bool) field.GetValue(_node);
-                valueField.RegisterValueChangedCallback(evt =>
-                {
-                    field.SetValue(_node, valueField.value);
-                    DialogueGraphEditorWindow.UnsavedChanges();
-                });
-
-                return valueField;
+                var eventType = Type.GetType("UnityEngine.UIElements.ChangeEvent`1, UnityEngine.UIElementsModule");
+                visualFieldCallback = method.MakeGenericMethod(eventType?.MakeGenericType(field.FieldType));
+                break;
             }
 
-            if (field.FieldType == typeof(DialogueLogType))
+            //Create field change callback
+            if (visualFieldCallback != null)
             {
-                var valueField = new EnumField();
-                valueField.Init((DialogueLogType) field.GetValue(_node));
-                valueField.AddToClassList("dialogue-node-port-field");
-
-                valueField.value = (DialogueLogType) field.GetValue(_node);
-                valueField.RegisterValueChangedCallback(evt =>
-                {
-                    field.SetValue(_node, valueField.value);
-                    DialogueGraphEditorWindow.UnsavedChanges();
-                });
-
-                return valueField;
+                var callbackMethod = this.GetType().GetMethod("SetCallbackEvent", BindingFlags.NonPublic | BindingFlags.Instance);
+                
+                if (visualFieldEnum != null)
+                    callbackMethod = callbackMethod?.MakeGenericMethod(typeof(Enum));
+                else
+                    callbackMethod = callbackMethod?.MakeGenericMethod(field.FieldType);
+                
+                visualField = callbackMethod?.Invoke(this, new object[] { (VisualElement) visualField, field, visualFieldValue });
             }
-            
-            if (field.FieldType == typeof(DialogueNode_ComparisonEnum))
+
+            return (VisualElement) visualField;
+        }
+
+        private VisualElement SetCallbackEvent<T>(VisualElement valueField, FieldInfo field, PropertyInfo visualFieldValue)
+        {
+            valueField.RegisterCallback<ChangeEvent<T>>((evt) =>
             {
-                var valueField = new EnumField();
-                valueField.Init((DialogueNode_ComparisonEnum) field.GetValue(_node));
-                valueField.AddToClassList("dialogue-node-port-field");
+                field.SetValue(_node, visualFieldValue?.GetValue(valueField));
+                DialogueGraphEditorWindow.UnsavedChanges();
+            });
 
-                valueField.value = (DialogueNode_ComparisonEnum) field.GetValue(_node);
-                valueField.RegisterValueChangedCallback(evt =>
-                {
-                    field.SetValue(_node, valueField.value);
-                    DialogueGraphEditorWindow.UnsavedChanges();
-                });
-
-                return valueField;
-            }
-            
-            return null;
+            return valueField;
         }
     }
 }

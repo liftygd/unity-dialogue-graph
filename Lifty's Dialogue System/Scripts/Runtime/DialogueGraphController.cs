@@ -31,7 +31,7 @@ namespace Lifty.DialogueSystem
         {
             if (!_variables.ContainsKey(variableName))
             {
-                var newVariable = new DialogueGraphVariable<T>();
+                var newVariable = new DialogueGraphVariable<T>(variableName);
                 newVariable.SetValue(value);
                 
                 _variables.Add(variableName, newVariable);

@@ -22,5 +22,15 @@ namespace Lifty.DialogueSystem
             PhraseTime = phraseTime;
             BlockID = "";
         }
+
+        public DialogueTextData(DialogueTextData copyData)
+        {
+            PhraseID = copyData.PhraseID;
+            Phrase = copyData.Phrase;
+            CharacterID = copyData.CharacterID;
+            CharacterName = copyData.CharacterName;
+            PhraseTime = copyData.PhraseTime;
+            BlockID = copyData.BlockID;
+        }
     }
 }

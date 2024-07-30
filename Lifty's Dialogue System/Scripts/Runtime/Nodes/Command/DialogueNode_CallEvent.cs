@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Lifty.DialogueSystem
 {
@@ -11,7 +12,7 @@ namespace Lifty.DialogueSystem
         [NodeFlow("Event Id", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.StringPort))]
         [SerializeReference] public DialogueGraphNode InEventID = new DialogueGraphNode(true);
         
-        [NodeFlowField("Event Id")] 
+        [NodeFlowField("Event Id", typeof(TextField))] 
         public string FieldEventID;
         private string _eventID;
 

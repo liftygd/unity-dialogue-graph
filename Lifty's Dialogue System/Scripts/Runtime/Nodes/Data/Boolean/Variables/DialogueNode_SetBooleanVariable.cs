@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Lifty.DialogueSystem.Variables
 {
@@ -11,14 +12,14 @@ namespace Lifty.DialogueSystem.Variables
         [NodeFlow("Variable Name", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.StringPort))]
         [SerializeReference] public DialogueGraphNode InVariableName = new DialogueGraphNode(true);
         
-        [NodeFlowField("Variable Name")] 
+        [NodeFlowField("Variable Name", typeof(TextField))] 
         public string FieldVariableName;
         private string _variableName;
         
         [NodeFlow("Value In", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.BooleanPort))]
         [SerializeReference] public DialogueGraphNode InVariableValue = new DialogueGraphNode(true);
         
-        [NodeFlowField("Value In")] 
+        [NodeFlowField("Value In", typeof(Toggle))] 
         public bool FieldVariableValue;
         private bool _variableValue;
         

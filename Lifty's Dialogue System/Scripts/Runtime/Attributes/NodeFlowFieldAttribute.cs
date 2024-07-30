@@ -9,9 +9,13 @@ namespace Lifty.DialogueSystem
         public string PortName => _portName;
         private string _portName;
 
-        public NodeFlowFieldAttribute(string portName)
+        public Type FieldType => _fieldType;
+        private Type _fieldType;
+
+        public NodeFlowFieldAttribute(string portName, Type fieldType)
         {
             _portName = portName;
+            _fieldType = fieldType;
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Lifty.DialogueSystem
 {
@@ -11,7 +12,7 @@ namespace Lifty.DialogueSystem
         [NodeFlow("Condition", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.BooleanPort))]
         [SerializeReference] public DialogueGraphNode InBool = new DialogueGraphNode(true);
         
-        [NodeFlowField("Condition")] 
+        [NodeFlowField("Condition", typeof(Toggle))] 
         public bool ConditionField;
         private bool _condition;
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Lifty.DialogueSystem
 {
@@ -8,7 +9,7 @@ namespace Lifty.DialogueSystem
         [NodeFlow("In", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.IntegerPort))]
         [SerializeReference] public DialogueGraphNode InIntValue = new DialogueGraphNode(true);
 
-        [NodeFlowField("In")] 
+        [NodeFlowField("In", typeof(IntegerField))] 
         public int FieldIntValue;
         private int _intValue;
         

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Lifty.DialogueSystem.Variables
 {
@@ -8,7 +9,7 @@ namespace Lifty.DialogueSystem.Variables
         [NodeFlow("Variable Name", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.StringPort))]
         [SerializeReference] public DialogueGraphNode InVariableName = new DialogueGraphNode(true);
         
-        [NodeFlowField("Variable Name")] 
+        [NodeFlowField("Variable Name", typeof(TextField))] 
         public string FieldVariableName;
         private string _variableName;
 

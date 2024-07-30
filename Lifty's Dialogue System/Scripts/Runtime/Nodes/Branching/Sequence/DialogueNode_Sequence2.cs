@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Lifty.DialogueSystem
 {
@@ -11,7 +12,7 @@ namespace Lifty.DialogueSystem
         [NodeFlow("Repeat Sequence", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.BooleanPort))]
         [SerializeReference] public DialogueGraphNode InRepeat = new DialogueGraphNode(true);
         
-        [NodeFlowField("Repeat Sequence")] 
+        [NodeFlowField("Repeat Sequence", typeof(Toggle))] 
         public bool FieldRepeat;
         private bool _repeat;
 

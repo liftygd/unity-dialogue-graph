@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Lifty.DialogueSystem
 {
@@ -8,14 +9,14 @@ namespace Lifty.DialogueSystem
         [NodeFlow("Boolean 1", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.BooleanPort))]
         [SerializeReference] public DialogueGraphNode InBooleanOne = new DialogueGraphNode(true);
         
-        [NodeFlowField("Boolean 1")] 
+        [NodeFlowField("Boolean 1", typeof(Toggle))] 
         public bool FieldBooleanOne;
         private bool _booleanOne;
         
         [NodeFlow("Boolean 2", NodeFlowType.FlowInput, typeof(DialogueGraphPortTypes.BooleanPort))]
         [SerializeReference] public DialogueGraphNode InBooleanTwo = new DialogueGraphNode(true);
         
-        [NodeFlowField("Boolean 2")] 
+        [NodeFlowField("Boolean 2", typeof(Toggle))] 
         public bool FieldBooleanTwo;
         private bool _booleanTwo;
         
