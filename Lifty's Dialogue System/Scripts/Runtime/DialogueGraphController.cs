@@ -8,40 +8,41 @@ namespace Lifty.DialogueSystem
     {
         public static DialogueGraphController Instance;
 
-        private void Awake()
+        protected void Awake()
         {
+            if (Instance != null)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
+            
             Instance = this;
-            _variables = new Dictionary<string, object>();
+            _variables = new Dictionary<string, DialogueGraphVariable<object>>();
         }
 
         #region Variables
         
-        private Dictionary<string, object> _variables;
+        protected Dictionary<string, DialogueGraphVariable<object>> _variables;
 
-        public T GetVariableValue<T>(string variableName)
+        public virtual T GetVariableValue<T>(string variableName)
         {
             if (!_variables.ContainsKey(variableName))
                 SetVariableValue(variableName, default(T));
             
-            var variable = (DialogueGraphVariable<T>) _variables[variableName];
-            return variable.GetValue();
+            var variable = (T) _variables[variableName].Value;
+            return variable;
         }
 
-        public void SetVariableValue<T>(string variableName, T value)
+        public virtual void SetVariableValue<T>(string variableName, T value)
         {
             if (!_variables.ContainsKey(variableName))
             {
-                var newVariable = new DialogueGraphVariable<T>(variableName);
-                newVariable.SetValue(value);
-                
+                var newVariable = new DialogueGraphVariable<object>(variableName, value);
                 _variables.Add(variableName, newVariable);
                 return;
             }
             
-            var currentVariable = (DialogueGraphVariable<T>) _variables[variableName];
-            currentVariable.SetValue(value);
-
-            _variables[variableName] = currentVariable;
+            _variables[variableName].SetValue(value);
         }
         
         #endregion
@@ -49,12 +50,12 @@ namespace Lifty.DialogueSystem
         #region Localization
 
         public DialogueLanguageEnum CurrentDialogueLanguage { get; private set; }
-        public Action DialogueLanguageChanged;
+        public Action<DialogueLanguageEnum> DialogueLanguageChanged;
 
-        public void ChangeDialogueLanguage(DialogueLanguageEnum newLanguage)
+        public virtual void ChangeDialogueLanguage(DialogueLanguageEnum newLanguage)
         {
             CurrentDialogueLanguage = newLanguage;
-            DialogueLanguageChanged?.Invoke();
+            DialogueLanguageChanged?.Invoke(newLanguage);
         }
 
         #endregion

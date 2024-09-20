@@ -36,6 +36,7 @@ namespace Lifty.DialogueSystem
 
         public override void Hide()
         {
+            StopAllCoroutines();
             textUI.text = "";
             
             if (_active)

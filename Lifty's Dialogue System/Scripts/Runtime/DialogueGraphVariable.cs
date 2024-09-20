@@ -2,30 +2,21 @@ using UnityEngine;
 
 namespace Lifty.DialogueSystem
 {
+    [System.Serializable]
     public class DialogueGraphVariable<T>
     {
-        public string VariableName { get; private set; }
-        private T _variable;
-        
-        public DialogueGraphVariable(string variableName)
-        {
-            VariableName = variableName;
-        }
-        
+        public string Name { get; private set; }
+        public T Value { get; private set; }
+
         public DialogueGraphVariable(string variableName, T variableValue)
         {
-            VariableName = variableName;
-            SetValue(variableValue);
-        }
-        
-        public T GetValue()
-        {
-            return _variable;
+            Name = variableName;
+            Value = variableValue;
         }
 
         public void SetValue(T value)
         {
-            _variable = value;
+            Value = value;
         }
     }
 }

@@ -11,9 +11,9 @@ namespace Lifty.DialogueSystem
     {
         public string CharacterID;
         [SerializeField] protected TMP_Text textUI;
-        [SerializeField] protected float _printerDelay;
+        [SerializeField] protected float printerDelay;
 
-        private void Start()
+        protected virtual void Start()
         {
             textUI.text = "";
         }
@@ -29,13 +29,13 @@ namespace Lifty.DialogueSystem
             var textLength = textData.Phrase.Length;
             var phraseText = textData.Phrase;
             textUI.text = "";
-            
+
             while (currentCharacter < textLength)
             {
                 currentCharacter++;
                 textUI.text = phraseText.Substring(0, currentCharacter);
 
-                yield return new WaitForSeconds(_printerDelay);
+                yield return new WaitForSeconds(printerDelay);
             }
             
             yield return new WaitForSeconds(textData.PhraseTime);
@@ -44,6 +44,7 @@ namespace Lifty.DialogueSystem
 
         public virtual void Hide()
         {
+            StopAllCoroutines();
             textUI.text = "";
         }
     }

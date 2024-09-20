@@ -38,9 +38,15 @@ namespace Lifty.DialogueSystem
             
         }
 
+        public virtual void Dispose()
+        {
+            
+        }
+
         public virtual void Process(DialogueGraphRunner runner)
         {
             _runner = runner;
+            _runner.SetCurrentNode(this);
         }
 
         protected T GetDataFromNode<T>(DialogueGraphNode node, DialogueGraphRunner runner)

@@ -39,6 +39,11 @@ namespace Lifty.DialogueSystem
             return startNodes[0];
         }
 
+        public DialogueGraphNode GetNodeByID(string guid)
+        {
+            return Nodes.FirstOrDefault(node => node.ID == guid);
+        }
+
         public void AddConnection(string outPortId, string inPortId)
         {
             _connectedPorts.Add(new DialogueGraphConnection(outPortId, inPortId));

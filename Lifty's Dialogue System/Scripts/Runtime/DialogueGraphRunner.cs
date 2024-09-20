@@ -9,45 +9,70 @@ namespace Lifty.DialogueSystem
 {
     public class DialogueGraphRunner : MonoBehaviour
     {
-        [SerializeField] private DialogueGraphAsset _dialogueGraph;
-        [SerializeField] private DialogueFileData _dialogueFile;
-        [SerializeField] private bool _runOnStart;
+        //Events
+        public event Action OnFileLoaded;
+        public event Action OnDialogueStarted;
+        public event Action OnDialogueEnded;
+        
+        [SerializeField] protected DialogueGraphAsset _dialogueGraph;
+        [SerializeField] protected DialogueFileData _dialogueFile;
+        [SerializeField] protected bool _runOnStart;
 
-        private bool _dialogueRunning;
-        private Dictionary<string, DialogueTextData> _dialogueText;
+        protected bool _dialogueRunning;
+        protected Dictionary<string, DialogueTextData> _dialogueText;
+        protected DialogueGraphNode _currentNode;
 
         [Header("UI")]
-        [SerializeField] private List<DialogueCharacterBubbleBase> _characterBubbles;
-        private DialogueCharacterBubbleBase _currentBubble;
+        [SerializeField] protected List<DialogueCharacterBubbleBase> _characterBubbles;
+        protected DialogueCharacterBubbleBase _currentBubble;
 
         [Header("Events")] 
-        [SerializeField] private List<DialogueGraphEvent> _events;
+        [SerializeField] protected List<DialogueGraphEvent> _events;
 
-        private void Start()
+        protected virtual void Start()
         {
-            LoadFile();
+            LoadFile(DialogueGraphController.Instance.CurrentDialogueLanguage);
+            DialogueGraphController.Instance.DialogueLanguageChanged += LoadFile;
+            
             if (_dialogueGraph == null) return;
             
-            DialogueGraphController.Instance.DialogueLanguageChanged += LoadFile;
             _dialogueGraph.Nodes.ForEach(node => node.Configurate());
-
             if (_runOnStart) StartDialogue();
         }
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             DialogueGraphController.Instance.DialogueLanguageChanged -= LoadFile;
+            
+            if (_dialogueGraph != null)
+                _dialogueGraph.Nodes.ForEach(node => node.Dispose());
         }
 
         #region Dialogue
 
-        public void StartDialogue()
+        public virtual bool IsRunning()
+        {
+            return _dialogueRunning;
+        }
+
+        public virtual void StartDialogue()
         {
             if (_dialogueRunning) return;
             
             _dialogueRunning = true;
             var startNode = GetStartNode();
             startNode.Process(this);
+            OnDialogueStarted?.Invoke();
+        }
+
+        public virtual void StartDialogue(DialogueGraphNode node)
+        {
+            if (_dialogueRunning) return;
+            if (node == null) return;
+            
+            _dialogueRunning = true;
+            node.Process(this);
+            OnDialogueStarted?.Invoke();
         }
 
         public DialogueNode_Start GetStartNode()
@@ -55,12 +80,24 @@ namespace Lifty.DialogueSystem
             return _dialogueGraph.GetStartNode();
         }
 
-        public void EndDialogue()
+        public DialogueGraphNode GetNodeByID(string guid)
+        {
+            return _dialogueGraph.GetNodeByID(guid);
+        }
+
+        public virtual void EndDialogue()
         {
             HideBubble();
+            OnDialogueEnded?.Invoke();
 
             _currentBubble = null;
             _dialogueRunning = false;
+            _currentNode = null;
+        }
+
+        public virtual void SetCurrentNode(DialogueGraphNode node)
+        {
+            _currentNode = node;
         }
 
         public void HideBubble()
@@ -112,41 +149,53 @@ namespace Lifty.DialogueSystem
 
         #region TextData
         
-        private void LoadFile()
+        private void LoadFile(DialogueLanguageEnum language)
         {
             if (_dialogueFile == null) return;
-            
+
             _dialogueText = new Dictionary<string, DialogueTextData>();
-            var textFile = _dialogueFile.GetFileByLanguage(DialogueGraphController.Instance.CurrentDialogueLanguage);
+            var textFile = _dialogueFile.GetFileByLanguage(language);
             
             DialogueTextData[] textData = JsonHelper.FromJson<DialogueTextData>(textFile.DialogueTextFile.text);
             foreach (var data in textData)
             {
                 _dialogueText.Add(data.PhraseID, data);
             }
+            
+            OnFileLoaded?.Invoke();
         }
 
+        //Show text data by phrase ID
         public void ShowTextData(string phraseID, Action callback)
         {
             var textData = GetTextData(phraseID);
             ShowText(textData, callback);
         }
 
+        //Show text data from class
         public void ShowTextData(DialogueTextData textData, Action callback)
         {
             ShowText(textData, callback);
         }
 
+        //Show text data with variable replacement
         public void ShowTextData(string phraseID, Action callback, DialogueGraphVariable<object>[] variablesToReplace)
         {
             var textData = new DialogueTextData(GetTextData(phraseID));
 
             foreach (var variable in variablesToReplace)
             {
-                textData.Phrase = textData.Phrase.Replace(variable.VariableName, variable.GetValue().ToString());
+                textData.Phrase = textData.Phrase.Replace(variable.Name, variable.Value.ToString());
             }
             
             ShowText(textData, callback);
+        }
+
+        //Show text data with custom bubble
+        public void ShowTextData(string phraseID, Action callback, DialogueCharacterBubbleBase bubble)
+        {
+            var textData = GetTextData(phraseID);
+            bubble.Show(textData, callback);
         }
 
         private void ShowText(DialogueTextData textData, Action callback)

@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterID: 
   textUI: {fileID: 6626355678646943452}
-  _printerDelay: 0
+  printerDelay: 0.075
   _anim: {fileID: 4361537705780177577}
   _appearAnimationTime: 0.5
 --- !u!1 &6160230770424672105
