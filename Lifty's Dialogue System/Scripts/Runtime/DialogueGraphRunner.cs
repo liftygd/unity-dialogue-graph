@@ -26,7 +26,7 @@ namespace Lifty.DialogueSystem
         [SerializeField] protected List<DialogueCharacterBubbleBase> _characterBubbles;
         protected DialogueCharacterBubbleBase _currentBubble;
 
-        protected List<DialogueGraphEvent> _events;
+        protected List<DialogueGraphEvent> _events = new List<DialogueGraphEvent>();
 
         protected virtual void Start()
         {
