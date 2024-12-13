@@ -26,8 +26,7 @@ namespace Lifty.DialogueSystem
         [SerializeField] protected List<DialogueCharacterBubbleBase> _characterBubbles;
         protected DialogueCharacterBubbleBase _currentBubble;
 
-        [Header("Events")] 
-        [SerializeField] protected List<DialogueGraphEvent> _events;
+        protected List<DialogueGraphEvent> _events;
 
         protected virtual void Start()
         {
@@ -117,6 +116,14 @@ namespace Lifty.DialogueSystem
             
             callback?.Invoke();
         }
+        #endregion
+
+        #region Events
+
+        public void AddEvent(DialogueGraphEvent graphEvent)
+        {
+            _events.Add(graphEvent);
+        }
 
         public void CallEvent(string eventID)
         {
@@ -130,7 +137,7 @@ namespace Lifty.DialogueSystem
             
             foundEvent.CallEvent();
         }
-
+        
         #endregion
 
         #region Variables
