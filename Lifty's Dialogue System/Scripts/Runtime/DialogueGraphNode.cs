@@ -13,8 +13,12 @@ namespace Lifty.DialogueSystem
         public string TypeName;
         public string ID => _guid;
         public Rect Position => _position;
-
         protected DialogueGraphRunner _runner;
+
+        /*public DialogueGraphNode()
+        {
+            NewGUID();
+        }*/
 
         public DialogueGraphNode(bool empty = false)
         {

@@ -21,12 +21,13 @@ namespace Lifty.DialogueSystem
         protected bool _dialogueRunning;
         protected Dictionary<string, DialogueTextData> _dialogueText;
         protected DialogueGraphNode _currentNode;
+        protected DialogueGraphAsset _currentAsset;
 
         [Header("UI")]
         [SerializeField] protected List<DialogueCharacterBubbleBase> _characterBubbles;
         protected DialogueCharacterBubbleBase _currentBubble;
 
-        protected List<DialogueGraphEvent> _events = new List<DialogueGraphEvent>();
+        protected Dictionary<string, DialogueGraphEvent> _events = new ();
 
         protected virtual void Start()
         {
@@ -64,13 +65,17 @@ namespace Lifty.DialogueSystem
             OnDialogueStarted?.Invoke();
         }
 
-        public virtual void StartDialogue(DialogueGraphNode node)
+        public virtual void StartDialogue(DialogueGraphAsset asset, bool overwrite)
         {
-            if (_dialogueRunning) return;
+            if (_dialogueRunning && !overwrite) return;
+
+            var node = asset.GetStartNode();
             if (node == null) return;
-            
+
+            _currentAsset = asset;
             _dialogueRunning = true;
             node.Process(this);
+            
             OnDialogueStarted?.Invoke();
         }
 
@@ -88,10 +93,12 @@ namespace Lifty.DialogueSystem
         {
             HideBubble();
             OnDialogueEnded?.Invoke();
+            _currentAsset.OnDialogueEnded?.Invoke();
 
             _currentBubble = null;
             _dialogueRunning = false;
             _currentNode = null;
+            _currentAsset = null;
         }
 
         public virtual void SetCurrentNode(DialogueGraphNode node)
@@ -122,20 +129,18 @@ namespace Lifty.DialogueSystem
 
         public void AddEvent(DialogueGraphEvent graphEvent)
         {
-            _events.Add(graphEvent);
+            _events.Add(graphEvent.EventID, graphEvent);
         }
 
         public void CallEvent(string eventID)
         {
-            var foundEvent = _events.First(e => e.EventID == eventID);
-
-            if (foundEvent == null)
+            if (!_events.ContainsKey(eventID))
             {
                 Debug.LogError("DIALOGUE GRAPH: Trying to call event by ID, but it does not exist.");
                 return;
             }
             
-            foundEvent.CallEvent();
+            _events[eventID].CallEvent();
         }
         
         #endregion

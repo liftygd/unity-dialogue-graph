@@ -8,6 +8,7 @@ namespace Lifty.DialogueSystem
     [CreateAssetMenu(fileName = "Dialogue Graph", menuName = "Lifty's Dialogue/New Dialogue Graph")]
     public class DialogueGraphAsset : ScriptableObject
     {
+        public Action OnDialogueEnded;
         public List<DialogueGraphNode> Nodes => _nodes;
         [SerializeReference] private List<DialogueGraphNode> _nodes;
 

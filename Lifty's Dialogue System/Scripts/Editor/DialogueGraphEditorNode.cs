@@ -24,7 +24,7 @@ namespace Lifty.DialogueSystem.Editor
 
         private DialogueGraphView _graphView;
 
-        public DialogueGraphEditorNode(DialogueGraphNode node, DialogueGraphView view)
+        public DialogueGraphEditorNode(DialogueGraphNode node, DialogueGraphView view, DialogueGraphAsset asset)
         {
             this.AddToClassList("dialogue-node");
             this.RemoveFromClassList("graphElement");
@@ -69,7 +69,7 @@ namespace Lifty.DialogueSystem.Editor
         public void ConnectNode(string portName, DialogueGraphNode node)
         {
             var fieldName = portName.Split("_")[1];
-            
+
             Type typeInfo = _node.GetType();
             var fields = typeInfo.GetFields();
             foreach (var field in fields)

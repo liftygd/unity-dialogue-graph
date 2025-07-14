@@ -17,6 +17,8 @@ namespace Lifty.DialogueSystem
         {
             textUI.text = "";
         }
+        
+        public virtual void Reset() {}
 
         public virtual void Show(DialogueTextData textData, Action callback)
         {

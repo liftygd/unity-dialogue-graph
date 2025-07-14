@@ -207,7 +207,7 @@ namespace Lifty.DialogueSystem.Editor
         {
             node.TypeName = node.GetType().AssemblyQualifiedName;
 
-            DialogueGraphEditorNode editorNode = new DialogueGraphEditorNode(node, this);
+            DialogueGraphEditorNode editorNode = new DialogueGraphEditorNode(node, this, _dialogueGraph);
             editorNode.SetPosition(node.Position);
             
             _graphNodes.Add(editorNode);
