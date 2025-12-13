@@ -9,7 +9,7 @@ namespace Lifty.DialogueSystem
         public string Phrase;
         public string CharacterID;
         public string CharacterName;
-        public int PhraseTime;
+        public float PhraseTime;
 
         public string BlockID;
 

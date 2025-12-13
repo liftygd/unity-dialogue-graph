@@ -3,8 +3,8 @@
     "rootNamespace": "Lifty.DialogueSystem",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
-        "GUID:1e113d3b5d77bc04eab508251483e8ff"
+        "GUID:1e113d3b5d77bc04eab508251483e8ff",
+        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -13,6 +13,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.localization",
+            "expression": "1.5.9",
+            "define": "LOCALIZATION_159"
+        }
+    ],
     "noEngineReferences": false
 }

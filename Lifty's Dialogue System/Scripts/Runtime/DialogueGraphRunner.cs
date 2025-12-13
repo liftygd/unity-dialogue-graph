@@ -93,7 +93,7 @@ namespace Lifty.DialogueSystem
         {
             HideBubble();
             OnDialogueEnded?.Invoke();
-            _currentAsset.OnDialogueEnded?.Invoke();
+            _currentAsset?.OnDialogueEnded?.Invoke();
 
             _currentBubble = null;
             _dialogueRunning = false;

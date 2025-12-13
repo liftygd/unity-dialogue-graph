@@ -18,7 +18,7 @@ namespace Lifty.DialogueSystem.Editor
         private DialogueGraphEditorWindow _window;
 
         public DialogueGraphEditorWindow Window => _window;
-
+        
         public List<DialogueGraphEditorNode> _graphNodes;
         public Dictionary<string, DialogueGraphEditorNode> _nodeDictionary;
 
